@@ -6,6 +6,8 @@ use App\Http\Controllers\Admin\{
     LevelController,
     DashboardController,
     CityController,
+    CategoryController,
+    AssignController,
 };
 use App\Http\Controllers\Front\{
     HomeController,
@@ -24,9 +26,9 @@ use App\Http\Controllers\Front\{
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('admin/dashboard',[DashboardController::class,'index'])->name('dashboard.index');
 
@@ -34,9 +36,12 @@ Route::resources([
     '/course' => CourseController::class,
     '/level' => LevelController::class,
     '/city' => CityController::class,
+    '/city' => CityController::class,
+    '/category' => CategoryController::class,
+    '/assign' => AssignController::class,
 ]);
 
 //front
-Route::get('/home',[HomeController::class,'index'])->name('home.index');
+Route::get('/',[HomeController::class,'index'])->name('home.index');
 Route::get('/course/detail/{id}',[CourseDetailController::class,'courseDetails'])->name('course.details');
 

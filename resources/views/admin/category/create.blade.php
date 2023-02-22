@@ -5,8 +5,8 @@
       <form id="formsubmit" method="POST"  action="javascript:void(0)" accept-charset="utf-8" >
         @csrf
             <div class="form-group">
-              <label for="exampleFormControlInput1">City Name</label>
-              <input type="text" class="form-control" name="name" id="name" placeholder="City">
+              <label for="exampleFormControlInput1">Category Name</label>
+              <input type="text" class="form-control" name="name" id="category" placeholder="Category">
             </div><br>
             <div class="form-group">
               <input type="submit" class="btn btn-dark text-white" class="form-control" id="submit" >
@@ -31,7 +31,7 @@
 
       $.ajax({
           type: 'POST',
-          url: "{{ route('city.store') }}",
+          url: "{{ route('category.store') }}",
           data: formData,
           cache: false,
           contentType: false,

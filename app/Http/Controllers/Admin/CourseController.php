@@ -9,6 +9,7 @@ use App\Models\{
     LevelCourse,
     City,
     CityCourse,
+    Category
 };
 
 class CourseController extends Controller
@@ -32,8 +33,9 @@ class CourseController extends Controller
     public function create()
     {
         $levels = LevelCourse::all();
-        $cities = City::all();
-        return view('admin/course/create',compact('levels','cities'));
+        // $cities = City::all();
+        $categories = Category::all();
+        return view('admin/course/create',compact('levels','categories'));
     }
 
     /**
@@ -47,7 +49,7 @@ class CourseController extends Controller
 
         $course = new Course;
         $course->level_id = $request->level;
-        $course->name = $request->name;
+        $course->category_id = $request->category;
         $course->start_date = $request->sdate;
         $course->end_date = $request->edate;
         $course->price = $request->price;
@@ -93,7 +95,8 @@ class CourseController extends Controller
         $levels = LevelCourse::all();
         $cities = City::all();
         $course = Course::where('id',$id)->first();
-        return view('admin/course/edit',compact('course','cities','levels'));
+        $categories = Category::all();
+        return view('admin/course/edit',compact('course','cities','levels','categories'));
     }
 
     /**
@@ -107,7 +110,7 @@ class CourseController extends Controller
     {
         $course = Course::where('id',$id)->first();
         $course->level_id = $request->level;
-        $course->name = $request->name;
+        $course->category_id = $request->category;
         $course->start_date = $request->sdate;
         $course->end_date = $request->edate;
         $course->price = $request->price;

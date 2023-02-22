@@ -60,15 +60,15 @@
                                 Dashboard
                             </a>
                             <div class="sb-sidenav-menu-heading">Interface</div>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseCourse" aria-expanded="false" aria-controls="collapseCourse">
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseCategory" aria-expanded="false" aria-controls="collapseCategory">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Course
+                                Category
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse" id="collapseCourse" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <div class="collapse" id="collapseCategory" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{ route('course.create') }}">Add Course</a>
-                                    <a class="nav-link" href="{{ route('course.index') }}">View Course</a>
+                                    <a class="nav-link" href="{{ route('category.create') }}">Add Category</a>
+                                    <a class="nav-link" href="{{ route('category.index') }}">View Category</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLevel" aria-expanded="false" aria-controls="collapseLevel">
@@ -93,6 +93,30 @@
                                     <a class="nav-link" href="{{ route('city.index') }}">View City</a>
                                 </nav>
                             </div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseCourse" aria-expanded="false" aria-controls="collapseCourse">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Course
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseCourse" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="{{ route('course.create') }}">Add Course</a>
+                                    <a class="nav-link" href="{{ route('course.index') }}">View Course</a>
+                                </nav>
+                            </div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseAssign" aria-expanded="false" aria-controls="collapseAssign">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Assign course
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseAssign" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="{{ route('assign.create') }}">Add </a>
+                                    <a class="nav-link" href="{{ route('assign.index') }}">View</a>
+                                </nav>
+                            </div>
+                           
+                          
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">

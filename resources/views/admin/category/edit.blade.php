@@ -2,16 +2,16 @@
 @section('content')
 <div class="row">
     <div class="col-xl-12 col-md-12">
-      <form id="formsubmit" method="POST"  action="javascript:void(0)" accept-charset="utf-8" >
+        <form id="formsubmit" method="POST"  action="javascript:void(0)" accept-charset="utf-8" >
         @csrf
             <div class="form-group">
-              <label for="exampleFormControlInput1">City Name</label>
-              <input type="text" class="form-control" name="name" id="name" placeholder="City">
+              <label for="exampleFormControlInput1">Category Name</label>
+              <input type="text" class="form-control" value="{{ $category->name }}" name="name" id="name" placeholder="Category">
             </div><br>
             <div class="form-group">
               <input type="submit" class="btn btn-dark text-white" class="form-control" id="submit" >
             </div>
-          </form>
+        </form>
     </div>
 
 </div>
@@ -20,8 +20,8 @@
 <script>
       $(document).on("submit",'#formsubmit', function (e) {
 
-      var formData = new FormData(this);
-      console.log(formData);
+        var name = $('#name').val();
+
 
       $.ajaxSetup({
         headers: {
@@ -30,12 +30,11 @@
       });
 
       $.ajax({
-          type: 'POST',
-          url: "{{ route('city.store') }}",
-          data: formData,
-          cache: false,
-          contentType: false,
-          processData: false,
+          type: 'PATCH',
+          url: "{{ route('category.update',$category->id) }}",
+          data: {
+            name : name,
+          },
           dataType: 'json',
           success: (msg) => {
               if(msg == true){
@@ -44,7 +43,7 @@
                   "closeButton" : true,
                   "progressBar" : true
                 }
-  		          toastr.success("data created successfully");
+  		          toastr.success("data edited successfully");
               }else{
                 toastr.options =
                 {
@@ -55,6 +54,9 @@
               }
           },
       });
+
+
+
 });
 </script>
 @endsection

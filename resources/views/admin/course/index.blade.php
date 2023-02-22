@@ -20,8 +20,8 @@
                 @foreach($courses as $item)
                 <tr>
                 <td scope="row">{{ $item->id }}</td>
-                <td scope="row">{{ $item->name }}</td>
-                <td scope="row">{{ $item->level_id }}</td>
+                <td scope="row">{{ $item->category->name }}</td>
+                <td scope="row">{{ $item->levelcourse->name }}</td>
                 <td scope="row">{{ $item->start_date }}</td>
                 <td scope="row">{{ $item->delivery }}</td>
                 <td scope="row">{{ $item->levelcourse->name }}</td>

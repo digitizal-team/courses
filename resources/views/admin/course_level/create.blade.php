@@ -2,7 +2,7 @@
 @section('content')
 <div class="row">
     <div class="col-xl-12 col-md-12">
-      <form id="level" method="POST"  action="javascript:void(0)" accept-charset="utf-8" >
+      <form id="formsubmit" method="POST"  action="javascript:void(0)" accept-charset="utf-8" >
         @csrf
             <div class="form-group">
               <label for="exampleFormControlInput1">Level Name</label>
@@ -18,7 +18,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script>
-      $(document).on("submit",'#level', function (e) {
+      $(document).on("submit",'#formsubmit', function (e) {
 
       var formData = new FormData(this);
       console.log(formData);

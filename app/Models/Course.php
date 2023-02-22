@@ -16,4 +16,13 @@ class Course extends Model
     public function levelcourse(){
         return $this->belongsTo(LevelCourse::class,'level_id','id');
     }
+
+    public function category(){
+        return $this->belongsTo(Category::class,'category_id','id');
+    }
+
+    public function assigncourse(){
+        return $this->hasMany(AssignCourse::class,'course_id','id');
+    }
+    
 }

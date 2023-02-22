@@ -5,11 +5,31 @@
       <form id="formsubmit" method="POST"  action="javascript:void(0)" accept-charset="utf-8" >
         @csrf
             <div class="form-group">
-              <label for="exampleFormControlInput1">City Name</label>
-              <input type="text" class="form-control" name="name" id="name" placeholder="City">
+              <label for="exampleFormControlInput1">Course</label>
+              <select class="form-control" name="course" id="course">
+                @foreach($courses as $item)
+                <option value="{{ $item->id }}">{{ $item->category->name }} ({{ $item->levelcourse->name }})</option>
+                @endforeach
+              </select>
             </div><br>
             <div class="form-group">
-              <input type="submit" class="btn btn-dark text-white" class="form-control" id="submit" >
+              <label for="exampleFormControlInput1">City</label>
+              <select class="form-control" name="city" id="city">
+                @foreach($cities as $item)
+                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                @endforeach
+              </select>
+            </div><br>
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Total seats</label>
+              <input type="number" class="form-control" name="seats" id="seats" placeholder="Seat">
+            </div><br>
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Date</label>
+              <input type="date" class="form-control" name="date" id="date" placeholder="date">
+            </div><br>
+            <div class="form-group">
+              <input type="submit" class="btn btn-dark text-white" class="form-control" id="submit">
             </div>
           </form>
     </div>
@@ -31,7 +51,7 @@
 
       $.ajax({
           type: 'POST',
-          url: "{{ route('city.store') }}",
+          url: "{{ route('assign.store') }}",
           data: formData,
           cache: false,
           contentType: false,

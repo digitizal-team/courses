@@ -12,4 +12,8 @@ class CityCourse extends Model
     public function cityCourse(){
         return $this->belongsToMany(Course::class);
     }
+
+    public function city(){
+        return $this->hasOne(City::class,'id','city_id');
+    }
 }

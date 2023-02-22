@@ -2,13 +2,17 @@
 @section('content')
 <div class="row">
     <div class="col-xl-12 col-md-12">
-      <form id="COURSESUBMIT" method="POST"  action="javascript:void(0)" accept-charset="utf-8" >
+      <form id="formsubmit" method="POST"  action="javascript:void(0)" accept-charset="utf-8" >
         @csrf
           <div class="row">
             <div class="col-md-6 pt-3">
               <div class="form-group">
-                <label for="exampleFormControlInput1">Course Name</label>
-                <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+                <label for="exampleFormControlInput1">Category</label>
+                <select  class="form-control" id="category" name="category" placeholder="Select category">
+                  @foreach($categories as $item)
+                  <option value="{{ $item->id }}">{{ $item->name }}</option>
+                  @endforeach
+                </select>
               </div>
             </div>
             <div class="col-md-6 pt-3">
@@ -23,7 +27,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-md-6 pt-3">
+            {{-- <div class="col-md-6 pt-3">
               <div class="form-group">
                 <label for="exampleFormControlInput1">City</label>
                 <select  class="form-control" id="city" name="city[]" placeholder="Select city" multiple>
@@ -32,7 +36,7 @@
                   @endforeach
                 </select>
               </div>
-            </div>
+            </div> --}}
             <div class="col-md-6 pt-3">
               <div class="form-group">
                 <label for="exampleFormControlInput1">Start date</label>
@@ -64,24 +68,24 @@
             <div class="col-md-6 pt-3">
               <div class="form-group">
                 <label for="exampleFormControlInput1">Time</label>
-                <input type="text" class="form-control" id="time" name="time" placeholder="">
+                <input type="time" class="form-control" id="time" name="time" placeholder="">
               </div>
             </div>
           </div>
-          <div class="row">
+          {{-- <div class="row">
             <div class="col-md-6 pt-3">
               <div class="form-group">
                 <label for="exampleFormControlInput1">class size (max)</label>
-                <input type="text" class="form-control" id="maxsize" name="maxsize" placeholder="">
+                <input type="number" class="form-control" id="maxsize" name="maxsize" placeholder="">
               </div>
             </div>
             <div class="col-md-6 pt-3">
               <div class="form-group">
                 <label for="exampleFormControlInput1">class size (min)</label>
-                <input type="text" class="form-control" id="minsize" name="minsize" placeholder="">
+                <input type="number" class="form-control" id="minsize" name="minsize" placeholder="">
               </div>
             </div>
-          </div>
+          </div> --}}
           <div class="row">
             <div class="col-md-6 pt-3">
               <div class="form-group">
@@ -131,7 +135,7 @@
 </div>
 
 <script>
-  $(document).on("submit",'#COURSESUBMIT', function (e) {
+  $(document).on("submit",'#formsubmit', function (e) {
 
   var formData = new FormData(this);
   console.log(formData);
