@@ -6,15 +6,15 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\{
     AssignCourse,
-    course,
+    Course,
 };
 
 class CourseDetailController extends Controller
 {
     public function courseDetails($id)
     {
-        $courses = course::where('category_id',$id)->with('assigncourse')->get();
-        $courses_id = course::where('category_id',$id)->with('assigncourse')->pluck('id')->all();
+        $courses = Course::where('category_id',$id)->with('assigncourse')->get();
+        $courses_id = Course::where('category_id',$id)->with('assigncourse')->pluck('id')->all();
        
         // dd($courses_id,$assign_courses);
         // dd($courses);
