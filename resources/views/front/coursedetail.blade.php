@@ -1,10 +1,10 @@
 @extends('front.layouts.app')
 @section('content')
-<main class="container">
+<main class="container-fluid">
 
 
 
-    <section class="py-5 text-center container">
+    <section class="py-5 text-center ">
         <div class="row py-lg-5">
           <div class="col-6">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
