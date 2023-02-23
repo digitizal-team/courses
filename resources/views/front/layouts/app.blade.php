@@ -1,14 +1,32 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.84.0">
-    <title>Album example · Bootstrap v5.0</title>
+    {{-- <title>Album example · Bootstrap v5.0</title> --}}
+    {{-- <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/album/"> --}}
+    {{-- //newtheme --}}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/album/">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+    <link rel="stylesheet" href="{{ asset('front/assets/css/animate.css') }}">
+    
+    <link rel="stylesheet" href="{{ asset('front/assets/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('front/assets/css/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('front/assets/css/magnific-popup.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('front/assets/css/flaticon.css') }}">
+    <link rel="stylesheet" href="{{ asset('front/assets/css/style.css') }}">
+    {{-- //endnewtheme --}}
+
 
     
 
@@ -35,43 +53,149 @@
   </head>
   <body>
     
-<header>
-  <div class="collapse bg-dark" id="navbarHeader">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-8 col-md-7 py-4">
-          <h4 class="text-white">About</h4>
-          <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
-        </div>
-        <div class="col-sm-4 offset-md-1 py-4">
-          <h4 class="text-white">Contact</h4>
-          <ul class="list-unstyled">
-            <li><a href="#" class="text-white">Follow on Twitter</a></li>
-            <li><a href="#" class="text-white">Like on Facebook</a></li>
-            <li><a href="#" class="text-white">Email me</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="navbar navbar-dark bg-dark shadow-sm">
-    <div class="container">
-      <a href="#" class="navbar-brand d-flex align-items-center">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-        <strong>Album</strong>
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    </div>
-  </div>
-</header>
+    <div class="wrap">
+			<div class="container">
+				<div class="row justify-content-between">
+						<div class="col">
+							<p class="mb-0 phone"><span class="fa fa-phone"></span> <a href="#">+00 1234 567</a></p>
+						</div>
+						<div class="col d-flex justify-content-end">
+							<div class="social-media">
+				    		<p class="mb-0 d-flex">
+				    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"><i class="sr-only">Facebook</i></span></a>
+				    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-twitter"><i class="sr-only">Twitter</i></span></a>
+				    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram"><i class="sr-only">Instagram</i></span></a>
+				    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-dribbble"><i class="sr-only">Dribbble</i></span></a>
+				    		</p>
+			        </div>
+						</div>
+				</div>
+			</div>
+	</div>
+	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	    	<a class="navbar-brand" href="index.html">Life<span>coach</span></a>
+	    	<form action="#" class="searchform order-sm-start order-lg-last">
+          <div class="form-group d-flex">
+            <input type="text" class="form-control pl-3" placeholder="Search">
+            <button type="submit" placeholder="" class="form-control search"><span class="fa fa-search"></span></button>
+          </div>
+        </form>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="fa fa-bars"></span> Menu
+	      </button>
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav m-auto">
+	        	<li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
+	        	<li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+	        	<li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+	          <li class="nav-item"><a href="success-stories.html" class="nav-link">Stories</a></li>
+	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+	        </ul>
+	      </div>
+	    </div>
+	</nav>
+
 @yield('content')
-<footer class="footer mt-auto py-3 bg-dark">
-  <div class="container">
-    <span class="text-muted">Place sticky footer content here.</span>
-  </div>
-</footer>
+    <footer class="footer">
+			<div class="container-fluid px-lg-5">
+				<div class="row">
+					<div class="col-md-9 py-5">
+						<div class="row">
+							<div class="col-md-4 mb-md-0 mb-4">
+								<h2 class="footer-heading">About us</h2>
+								<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+								<ul class="ftco-footer-social p-0">
+		              <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><span class="fa fa-twitter"></span></a></li>
+		              <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><span class="fa fa-facebook"></span></a></li>
+		              <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><span class="fa fa-instagram"></span></a></li>
+		            </ul>
+							</div>
+							<div class="col-md-8">
+								<div class="row justify-content-center">
+									<div class="col-md-12 col-lg-10">
+										<div class="row">
+											<div class="col-md-4 mb-md-0 mb-4">
+												<h2 class="footer-heading">Courses</h2>
+												<ul class="list-unstyled">
+						              <li><a href="#" class="py-1 d-block">Painting</a></li>
+						              <li><a href="#" class="py-1 d-block">Sketch</a></li>
+						              <li><a href="#" class="py-1 d-block">Drawing</a></li>
+						              <li><a href="#" class="py-1 d-block">Sculpture</a></li>
+						            </ul>
+											</div>
+											<div class="col-md-4 mb-md-0 mb-4">
+												<h2 class="footer-heading">Topics</h2>
+												<ul class="list-unstyled">
+						              <li><a href="#" class="py-1 d-block">Accreditation</a></li>
+						              <li><a href="#" class="py-1 d-block">Disclosure</a></li>
+						              <li><a href="#" class="py-1 d-block">Student Code</a></li>
+						              <li><a href="#" class="py-1 d-block">Job Opportunities</a></li>
+						            </ul>
+											</div>
+											<div class="col-md-4 mb-md-0 mb-4">
+												<h2 class="footer-heading">Resources</h2>
+												<ul class="list-unstyled">
+						              <li><a href="#" class="py-1 d-block">Security</a></li>
+						              <li><a href="#" class="py-1 d-block">Global</a></li>
+						              <li><a href="#" class="py-1 d-block">Charts</a></li>
+						              <li><a href="#" class="py-1 d-block">Privacy</a></li>
+						            </ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row mt-md-5">
+							<div class="col-md-12">
+								<p class="copyright"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+					  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
+					  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 py-md-5 py-4 aside-stretch-right pl-lg-5">
+						<h2 class="footer-heading">Free consultation</h2>
+						<form action="#" class="form-consultation">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Your Name">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Your Email">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Subject">
+              </div>
+              <div class="form-group">
+                <textarea name="" id="" cols="30" rows="3" class="form-control" placeholder="Message"></textarea>
+              </div>
+              <div class="form-group">
+              	<button type="submit" class="form-control submit px-3">Send A Message</button>
+              </div>
+            </form>
+					</div>
+				</div>
+			</div>
+		</footer>
     <script src="{{ asset('front/assets/dist/js/bootstrap.bundle.min.js') }}"></script>
+    {{-- newtheme --}}
+    <script src="{{ asset('front/assets/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('front/assets/js/jquery-migrate-3.0.1.min.js') }}"></script>
+    <script src="{{ asset('front/assets/js/popper.min.js') }}"></script>
+    <script src="{{ asset('front/assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('front/assets/js/jquery.easing.1.3.js') }}"></script>
+    <script src="{{ asset('front/assets/js/jquery.waypoints.min.js') }}"></script>
+    <script src="{{ asset('front/assets/js/jquery.stellar.min.js') }}"></script>
+    <script src="{{ asset('front/assets/js/jquery.animateNumber.min.js') }}"></script>
+    <script src="{{ asset('front/assets/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('front/assets/js/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('front/assets/js/scrollax.min.js') }}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="{{ asset('front/assets/js/google-map.js') }}"></script>
+    <script src="{{ asset('front/assets/js/main.js') }}"></script>
+    {{-- endnewtheme --}}
+
   </body>
 </html>

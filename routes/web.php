@@ -44,4 +44,5 @@ Route::resources([
 //front
 Route::get('/',[HomeController::class,'index'])->name('home.index');
 Route::get('/course/detail/{id}',[CourseDetailController::class,'courseDetails'])->name('course.details');
+Route::get('/getCourseData/{dataId}',[CourseDetailController::class,'courseData']);
 

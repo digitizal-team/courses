@@ -4,14 +4,14 @@
 
 
 
-    <section class="py-5 text-center container">
+    <section class="py-5  container">
         <div class="row py-lg-5">
           <div class="col-6">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
               {{-- @dd($courses) --}}
                 @foreach($courses as $item)
                 <li class="nav-item" role="presentation">
-                  <button class="nav-link"  data-bs-toggle="tab" data-bs-target="#home{{ $item->id }}" type="button" role="tab" aria-controls="home" aria-selected="true">{{ $item->levelcourse->name }}</button>
+                  <button class="nav-link" id="courseId"  data-bs-toggle="tab" data-id="{{ $item->id }}" data-bs-target="#home{{ $item->id }}" type="button" role="tab" aria-controls="home" aria-selected="true">{{ $item->levelcourse->name }}</button>
                 </li>
                 @endforeach
               </ul>
@@ -48,10 +48,74 @@
                 @endforeach
               </div>
           </div>
+
+            <div class="col-6">
+              <div class="card">
+                <div class="card-header">
+                  Course Details
+                </div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-6">
+                      <p>Price</p>
+                      <p>Duration</p>
+                      <p>Time</p>
+                      <p>Class Size (max)</p>
+                      <p>Class Size (avg)</p>
+                      <p>Reference Materials</p>
+                      <p>Training Computer</p>
+                      <p>CPD Hours</p>
+                      <p>Delivery</p>
+                    </div>
+                    <div class="col-6" id="myHtmlCode">
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
         </div>
     </section>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+          $(document).on("click",'#courseId', function (e) {
+            var dataId = $(this).attr("data-id");
 
-
+          $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+          });
+    
+          $.ajax({
+              type: 'GET',
+              url: "{{ url('/getCourseData') }}"+"/"+dataId,
+              data: null,
+              cache: false,
+              contentType: false,
+              processData: false,
+              dataType: 'json',
+              success: (data) => {
+                $('#myHtmlCode').empty();
+                $('#myHtmlCode').append(myHtmlCode);
+                var myHtmlCode =
+                '<p>'+data.data.price+'</p>'+
+                '<p>'+data.data.duration+'</p>'+
+                '<p>'+data.data.time+'</p>'+
+                '<p>'+data.data.class_size_max+'</p>'+
+                '<p>'+data.data.class_size_min+'</p>'+
+                '<p>'+data.data.reference_material+'</p>'+
+                '<p>'+data.data.training_computer+'</p>'+
+                '<p>'+data.data.CPD_hour+'</p>'+
+                '<p>'+data.data.delivery+'</p>'
+                ;
+                console.log(data.data.price)
+                $('#myHtmlCode').append(myHtmlCode);
+              },
+          });
+    });
+    </script>
 </main>
 @endsection
