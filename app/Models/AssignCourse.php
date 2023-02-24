@@ -12,4 +12,10 @@ class AssignCourse extends Model
     public function course(){
         return $this->belongsTo(Course::class);
     }
+
+   
+
+    public function city(){
+        return $this->belongsTo(City::class);
+    }
 }

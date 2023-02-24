@@ -32,10 +32,12 @@ Route::resources([
 //front
 Route::get('/',[HomeController::class,'index'])->name('home.index');
 Route::get('/course/detail/{id}',[CourseDetailController::class,'courseDetails'])->name('course.details');
-<<<<<<< HEAD
 Route::get('/getCourseData/{dataId}',[CourseDetailController::class,'courseData']);
-=======
 Route::get('booking',[BookingController::class,'index'])->name('course.booking');
 
->>>>>>> refs/remotes/origin/main
+Route::get('/getlocation/{dataId}',[BookingController::class,'getlocation']);
+Route::get('/getsession/{course_id}/{city_id}',[BookingController::class,'getsession']);
+Route::get('/getseats/{id}',[BookingController::class,'getseats']);
+
+
 
