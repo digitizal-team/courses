@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\Models\{
     City,
     Course,
@@ -48,6 +49,7 @@ class AssignController extends Controller
         $assign_course->city_id = $request->city;
         $assign_course->no_of_seats = $request->seats;
         $assign_course->date = $request->date;
+        $assign_course->session_id = rand(0, 99999999);
         $assign_course->save();
         return true;
 

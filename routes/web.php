@@ -33,7 +33,7 @@ Route::resources([
 Route::get('/',[HomeController::class,'index'])->name('home.index');
 Route::get('/course/detail/{id}',[CourseDetailController::class,'courseDetails'])->name('course.details');
 Route::get('/getCourseData/{dataId}',[CourseDetailController::class,'courseData']);
-Route::get('booking',[BookingController::class,'index'])->name('course.booking');
+Route::get('booking/{id?}',[BookingController::class,'index'])->name('course.booking');
 route::get('about',function(){
     return view('front.about');
 });

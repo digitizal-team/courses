@@ -13,10 +13,12 @@ use App\Models\{
 class BookingController extends Controller
 {
     
-    public function index()
+    public function index($id = "")
     {
+
+        $assign_courses = AssignCourse::where('session_id',$id)->first();
         $courses = Course::with('assigncourse')->get();
-        return view('front/booking/index', compact('courses'));
+        return view('front/booking/index', compact('courses','assign_courses'));
     }
 
 
@@ -37,6 +39,9 @@ class BookingController extends Controller
         $no_of_seats = AssignCourse::where('id',$id)->value('no_of_seats');
         return response()->json($no_of_seats);
     }
+
+
+
 
     
   

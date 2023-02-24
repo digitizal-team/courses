@@ -22,7 +22,7 @@
                   <th scope="row">{{ $item->id }}</th>
                   <td>{{ $item->course->category->name }}</td>
                   <td>{{ $item->course->levelcourse->name }}</td>
-                  <td>{{ $item->course->citycourse->city->name }}</td>
+                  {{-- <td>{{ $item->course->citycourse->city->name }}</td> --}}
                   <td>{{ $item->no_of_seats }}</td>
                   <td>{{ $item->date }}</td>
                   <td>{{ $item->created_at->format('d/m/Y') }}</td>

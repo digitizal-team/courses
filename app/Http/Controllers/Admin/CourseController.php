@@ -8,7 +8,6 @@ use App\Models\{
     Course,
     LevelCourse,
     City,
-    CityCourse,
     Category
 };
 
@@ -64,12 +63,7 @@ class CourseController extends Controller
         $course->status = $request->status;
         $course->save();
 
-        foreach ($request->city as $city){
-            $citycourse = new CityCourse();
-            $citycourse->city_id = $city;
-            $citycourse->course_id = $course->id;
-            $citycourse->save();
-        }
+
         return true;
     }
 
@@ -125,12 +119,6 @@ class CourseController extends Controller
         $course->status = $request->status;
         $course->save();
 
-        foreach ($request->city as $city){
-            $citycourse = new CityCourse();
-            $citycourse->city_id = $city;
-            $citycourse->course_id = $course->id;
-            $citycourse->save();
-        }
         return true;
     }
 
