@@ -16,9 +16,9 @@ class BookingController extends Controller
     public function index($id = "")
     {
 
-        $assign_courses = AssignCourse::where('session_id',$id)->first();
+        $assign_course = AssignCourse::where('session_id',$id)->first();
         $courses = Course::with('assigncourse')->get();
-        return view('front/booking/index', compact('courses','assign_courses'));
+        return view('front/booking/index', compact('courses','assign_course'));
     }
 
 

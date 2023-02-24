@@ -101,7 +101,7 @@
 .course{
     min-height: 422px;
     width: 100%;
-    background-color: #003057;
+    background-color: #0d6efd;
  
    
 }
@@ -242,7 +242,7 @@
     width: 100%;
 }
 .course-blue-box>.title, .course-blue-box>.body>.title {
-    background-color: #003057;
+    background-color: #0d6efd;
     padding: 0.6em;
     cursor: pointer;
     color: white;
@@ -409,7 +409,7 @@ h2 {
     margin-inline-end: 0px;
     font-weight: bold;
 }
-.macro-course-structure .view-course {
+.view-course {
     font-size: 11px;
     background-color: #0064F0;
     border-radius: 20px;

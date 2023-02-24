@@ -358,10 +358,11 @@
                                                     <select name="" id="course" class="form-select form-select-sm"
                                                         aria-label=".form-select-sm example">
                                                         <option value="">Select Course</option>
+                                                        
                                                         @php($category = '');
                                                         @foreach ($courses as $course)
                                                             @if ($category != $course->category->name)
-                                                                <option value="" class="category-option" disabled>
+                                                                <option value="" {{ $course->id == $assign_course->course_id ? 'selected' : '' }}  class="category-option" disabled>
                                                                     {{ $course->category->name }}</option>
                                                             @endif
                                                             @php($category = $course->category->name)
@@ -770,8 +771,6 @@
                 '            </div>' + 
                 '        </div>' + 
                 '        <div id="student-summery">'; 
-
-
 
             for (let index = 0; index < students; index++) {
                 let no_of_student = index + 1;
