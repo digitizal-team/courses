@@ -411,7 +411,107 @@
                 </div>
             </div>
         </section>
+        <section>
+            <div class="course">
+                <p class="course-p">Our Courses</p>
+                <div class="course-child">
+                    <div class="row course-row">
+                        <div class="col-lg-6 course-col">
+                            <div class="course-img-text">
+                                <img class="course-img" src="{{ url('front/assets/images/powerbi.png') }}"
+                                    alt="">
+                                <p class="course-text">Power BI</p>
+                            </div>
+                            <div class="course-img-text">
+                                <img class="course-img" src="{{ url('front/assets/images/powerbi.png') }}"
+                                    alt="">
+                                <p class="course-text">Power BI</p>
+                            </div>
+                            <div class="course-img-text">
+                                <img class="course-img" src="{{ url('front/assets/images/powerbi.png') }}"
+                                    alt="">
+                                <p class="course-text">Power BI</p>
+                            </div>
+                            <div class="course-img-text">
+                                <img class="course-img" src="{{ url('front/assets/images/powerbi.png') }}"
+                                    alt="">
+                                <p class="course-text">Power BI</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 course-col">
+                            <div class="course-img-text">
+                                <img class="course-img" src="{{ url('front/assets/images/powerbi.png') }}"
+                                    alt="">
+                                <p class="course-text">Power BI</p>
+                            </div>
+                            <div class="course-img-text">
+                                <img class="course-img" src="{{ url('front/assets/images/powerbi.png') }}"
+                                    alt="">
+                                <p class="course-text">Power BI</p>
+                            </div>
+                            <div class="course-img-text">
+                                <img class="course-img" src="{{ url('front/assets/images/powerbi.png') }}"
+                                    alt="">
+                                <p class="course-text">Power BI</p>
+                            </div>
+                            <div class="course-img-text">
+                                <img class="course-img" src="{{ url('front/assets/images/powerbi.png') }}"
+                                    alt="">
+                                <p class="course-text">Power BI</p>
+                            </div>
+                        </div>
+                  
+                            <div class="col-lg-6 course-col">
+                                <div class="course-img-text">
+                                    <img class="course-img" src="{{ url('front/assets/images/powerbi.png') }}"
+                                        alt="">
+                                    <p class="course-text">Power BI</p>
+                                </div>
+                                <div class="course-img-text">
+                                    <img class="course-img" src="{{ url('front/assets/images/powerbi.png') }}"
+                                        alt="">
+                                    <p class="course-text">Power BI</p>
+                                </div>
+                                <div class="course-img-text">
+                                    <img class="course-img" src="{{ url('front/assets/images/powerbi.png') }}"
+                                        alt="">
+                                    <p class="course-text">Power BI</p>
+                                </div>
+                                <div class="course-img-text">
+                                    <img class="course-img" src="{{ url('front/assets/images/powerbi.png') }}"
+                                        alt="">
+                                    <p class="course-text">Power BI</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 course-col">
+                                <div class="course-img-text">
+                                    <img class="course-img" src="{{ url('front/assets/images/powerbi.png') }}"
+                                        alt="">
+                                    <p class="course-text">Power BI</p>
+                                </div>
+                                <div class="course-img-text">
+                                    <img class="course-img" src="{{ url('front/assets/images/powerbi.png') }}"
+                                        alt="">
+                                    <p class="course-text">Power BI</p>
+                                </div>
+                                <div class="course-img-text">
+                                    <img class="course-img" src="{{ url('front/assets/images/powerbi.png') }}"
+                                        alt="">
+                                    <p class="course-text">Power BI</p>
+                                </div>
+                                <div class="course-img-text">
+                                    <img class="course-img" src="{{ url('front/assets/images/powerbi.png') }}"
+                                        alt="">
+                                    <p class="course-text">Power BI</p>
+                                </div>
+                            </div>
+                        
+                    </div>
+                </div>
+            </div>
 
+
+        </section>
         <div class="my-3 p-3 bg-body rounded shadow-sm">
             <h6 class="border-bottom pb-2 mb-0">Our Courses</h6>
             <div class="row">
