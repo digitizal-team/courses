@@ -9,7 +9,5 @@ class City extends Model
 {
     use HasFactory;
 
-    public function citycourse(){
-        return $this->belongsToMany(CityCourse::class);
-    }
+    
 }

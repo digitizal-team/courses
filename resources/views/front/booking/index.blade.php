@@ -1,19 +1,16 @@
 @extends('front.layouts.app')
 @section('content')
     <!-- Include the necessary CSS and JavaScript files -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> --}}
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script> --}}
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"
-        integrity="sha512-rstIgDs0xPgmG6RX1Aba4KV5cWJbAMcvRCVmglpam9SoHZiUCyQVDdH2LPlxoHtrv17XWblE/V/PP+Tr04hbtA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/additional-methods.min.js"
-        integrity="sha512-6S5LYNn3ZJCIm0f9L6BCerqFlQ4f5MwNKq+EthDXabtaJvg3TuFLhpno9pcm+5Ynm6jdA9xfpQoMz2fcjVMk9g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script> {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.js"></script> --}}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-    <!-- Create the HTML structure for the form -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous"> --}}
+
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/css/bootstrapValidator.min.css" integrity="sha512-YDChav1pUAodyH1Ja7PIpEDUOoFROpZi5Lb7pY8+9+kU8UTr3J8SI8QO7SRuf4qdDKb5OI0xSt4Vk1wiYjBXgw==" crossorigin="anonymous" referrerpolicy="no-referrer" /> --}}
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/js/bootstrapValidator.min.js" integrity="sha512-Vp2UimVVK8kNOjXqqj/B0Fyo96SDPj9OCSm1vmYSrLYF3mwIOBXh/yRZDVKo8NemQn1GUjjK0vFJuCSCkYai/A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> --}}
+
+
     <style>
         .md-stepper-horizontal {
             display: table;
@@ -210,20 +207,62 @@
         }
 
         .back-button {
-    background: #dadada;
-    color: #686667;
-    margin-left: 25px;
-    height: 34px;
-}
+            background: #dadada;
+            color: #686667;
+            margin-left: 25px;
+            height: 34px;
+        }
 
-.back-button:hover {
-    background: #dadada;
-    color: #686667;
-    margin-left: 25px;
-    height: 34px;
-}
+        .back-button:hover {
+            background: #dadada;
+            color: #686667;
+            margin-left: 25px;
+            height: 34px;
+        }
+
+        .booking-summary-card {
+            background: #fff;
+            padding: 10px;
+            border: 1px solid #dbdbdb;
+            margin-bottom: 0;
+            margin-right: 10px;
+            margin-left: 10px;
+        }
 
 
+
+
+        .summary-heading {
+            font-size: 12px;
+            padding-top: 5px;
+            font-weight: 700;
+        }
+
+        .summary-data {
+            font-size: 12px;
+            padding-top: 5px;
+        }
+
+        .summary-input {
+            height: 30px !important;
+            margin-left: 12px;
+        }
+
+        .remove-student-button {
+            height: 30px;
+            padding-top: 2px;
+
+        }
+
+        .summery-head {
+            margin-bottom: 10px;
+        }
+
+        .category-option {
+            font-weight: 700;
+            color: #666;
+            font-size: 15px;
+        }
     </style>
 
     <div class="container">
@@ -316,55 +355,41 @@
                                             <div
                                                 class="form-group row course-selection-container ng-touched ng-pristine ng-invalid">
                                                 <div class="col-sm-3">
-
-                                                    <select name="" id="" class="form-select form-select-sm"
+                                                    <select name="" id="course" class="form-select form-select-sm"
                                                         aria-label=".form-select-sm example">
-                                                        <option value="">Excel entermeditae</option>
-                                                        <option value="">Excel entermeditae</option>
-                                                        <option value="">Excel entermeditae</option>
-                                                        <option value="">Excel entermeditae</option>
-                                                        <option value="">Excel entermeditae</option>
-                                                        <option value="">Excel entermeditae</option>
-
+                                                        <option value="">Select Course</option>
+                                                        @php($category = '');
+                                                        @foreach ($courses as $course)
+                                                            @if ($category != $course->category->name)
+                                                                <option value="" class="category-option" disabled>
+                                                                    {{ $course->category->name }}</option>
+                                                            @endif
+                                                            @php($category = $course->category->name)
+                                                            <option value="{{ $course->id }}">
+                                                                {{ $course->levelcourse->name }}</option>
+                                                        @endforeach
                                                     </select>
 
                                                 </div>
-                                                <!---->
-                                                <div class="col-sm-3 option-container">
-                                                    <select name="" id="" class="form-select form-select-sm"
-                                                        aria-label=".form-select-sm example">
-                                                        <option value="">Excel entermeditae</option>
-                                                        <option value="">Excel entermeditae</option>
-                                                        <option value="">Excel entermeditae</option>
-                                                        <option value="">Excel entermeditae</option>
-                                                        <option value="">Excel entermeditae</option>
-                                                        <option value="">Excel entermeditae</option>
 
+                                                <div class="col-sm-3 option-container">
+                                                    <select name="" id="location" class="form-select form-select-sm"
+                                                        aria-label=".form-select-sm example">
                                                     </select>
                                                 </div>
 
                                                 <div class="col-sm-3 option-container">
-                                                    <select name="" id="" class="form-select form-select-sm"
+                                                    <select name="" id="session" class="form-select form-select-sm"
                                                         aria-label=".form-select-sm example">
-                                                        <option value="">Excel entermeditae</option>
-                                                        <option value="">Excel entermeditae</option>
-                                                        <option value="">Excel entermeditae</option>
-                                                        <option value="">Excel entermeditae</option>
-                                                        <option value="">Excel entermeditae</option>
-                                                        <option value="">Excel entermeditae</option>
 
                                                     </select>
                                                 </div>
 
                                                 <div class="col-sm-3 option-container">
-                                                    <select name="" id="" class="form-select form-select-sm"
+                                                    <select name="" id="no_of_seats"
+                                                        class="form-select form-select-sm"
                                                         aria-label=".form-select-sm example">
-                                                        <option value="">Excel entermeditae</option>
-                                                        <option value="">Excel entermeditae</option>
-                                                        <option value="">Excel entermeditae</option>
-                                                        <option value="">Excel entermeditae</option>
-                                                        <option value="">Excel entermeditae</option>
-                                                        <option value="">Excel entermeditae</option>
+
 
                                                     </select>
                                                 </div>
@@ -409,6 +434,40 @@
                                                     </div>
                                                 </div>
                                             </div>
+
+                                            <div id="summery-data">
+
+                                                {{-- <div class="form-group row mb-0">
+                                                    <div class="col booking-summary-card ng-touched ng-dirty ng-invalid">
+                                                        <div class="row summery-head">
+                                                            <div class="col-2 summary-heading">Course </div>
+                                                            <div class="col-2 summary-heading">City</div>
+                                                            <div class="col-2 summary-heading">Date</div>
+                                                            <div class="col-5 ">
+                                                                <div class="row">
+                                                                    <div class="summary-heading col ">Student Name</div>
+                                                                    <div class="summary-heading col">Student Email</div>
+                                                                </div>
+    
+                                                            </div>
+                                                            <div class="col-1">
+                                                            </div>
+                                                        </div>
+                                                    <div id="student-summery">
+                                                       
+                                                    </div>
+    
+                                                    </div>
+    
+    
+                                                </div> --}}
+                                            </div>
+
+
+
+
+
+
                                             <!---->
                                             <!---->
                                             <!---->
@@ -492,9 +551,8 @@
                         </div>
                     </div>
 
-                    <div class="form-group row pt-4"><button
-                            class="btn back-button col-sm-4" hidden="" disabled="" id="prev-btn"><i
-                                class="fa fa-arrow-circle-left mr-2"></i>
+                    <div class="form-group row pt-4"><button class="btn back-button col-sm-4" hidden=""
+                            disabled="" id="prev-btn"><i class="fa fa-arrow-circle-left mr-2"></i>
                             <!----> Back
                         </button>
                         <div class="col"></div>
@@ -505,7 +563,7 @@
                     </div>
 
 
-                    <div class="row">
+                    {{-- <div class="row">
                         <div class="col-12">
                             <button type="button" class="btn btn-secondary" id="prev-btn" disabled>Previous</button>
                             <button type="button" class="btn btn-primary" id="next-btn">Next</button>
@@ -514,13 +572,14 @@
                             <button type="submit" class="btn btn-success" id="submit-btn"
                                 style="display:none;">Submit</button>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </form>
 
     </div>
-
+@endsection
+@section('script')
     <script>
         $(document).ready(function() {
             // Initialize the current step
@@ -617,6 +676,145 @@
                     $('#submit-btn').hide();
                 }
             });
+        });
+    </script>
+
+
+    <script>
+        ///// get location /////
+        $(document).on("change", '#course', function(e) {
+            var dataId = $(this).val();
+            $.ajax({
+                type: 'GET',
+                url: "{{ url('/getlocation') }}" + "/" + dataId,
+                dataType: 'json',
+                success: (data) => {
+                    $('#location').empty();
+
+                    $('#location').append('<option value="">Select Location</option>');
+                    $.each(data, function(index, element) {
+                        $('#location').append('<option value="' + element['city']['id'] + '">' +
+                            element['city']['name'] +
+                            '</option>');
+
+                    });
+                },
+            });
+        });
+
+        ///// get session /////
+        $(document).on("change", '#location', function(e) {
+            var city_id = $(this).val();
+            var course_id = $('#course').find(":selected").val();
+            $.ajax({
+                type: 'GET',
+                url: "{{ url('/getsession') }}" + "/" + course_id + "/" + city_id,
+                dataType: 'json',
+                success: (data) => {
+                    console.log(data)
+                    $('#session').empty();
+                    $('#session').append('<option value="">Select Session</option>');
+                    $.each(data, function(index, element) {
+                        $('#session').append('<option value="' + element['id'] + '">' + element[
+                                'date'] + '&nbsp;&nbsp;&nbsp;(' + element['no_of_seats'] +
+                            ')</option>');
+
+                    });
+                },
+            });
+        });
+
+
+
+        ///// No of Seats /////
+        $(document).on("change", '#session', function(e) {
+            var id = $(this).val();
+            $.ajax({
+                type: 'GET',
+                url: "{{ url('/getseats') }}" + "/" + id,
+                dataType: 'json',
+                success: (data) => {
+                    $('#no_of_seats').append('<option value="">No. Student</option>');
+                    for (let index = 0; index < data; index++) {
+                        let no_of_seats = index + 1;
+                        $('#no_of_seats').append('<option value="' + no_of_seats + '"> ' + no_of_seats +
+                            '</option>');
+                    }
+                },
+            });
+        });
+
+
+
+        ///// No of Seats /////
+        $(document).on("change", '#no_of_seats', function(e) {
+            var students = $(this).val();
+
+            // $('#no_of_seats').append('<option value="">No. Student</option>');
+
+
+                var seats = '' + 
+                ' <div class="form-group row mb-0">' + 
+                '    <div class="col booking-summary-card ng-touched ng-dirty ng-invalid">' + 
+                '        <div class="row summery-head">' + 
+                '            <div class="col-2 summary-heading">Course </div>' + 
+                '            <div class="col-2 summary-heading">City</div>' + 
+                '            <div class="col-2 summary-heading">Date</div>' + 
+                '            <div class="col-5 ">' + 
+                '                <div class="row">' + 
+                '                    <div class="summary-heading col ">Student Name</div>' + 
+                '                    <div class="summary-heading col">Student Email</div>' + 
+                '                </div>' + 
+                '            </div>' + 
+                '            <div class="col-1">' + 
+                '            </div>' + 
+                '        </div>' + 
+                '        <div id="student-summery">'; 
+
+
+
+            for (let index = 0; index < students; index++) {
+                let no_of_student = index + 1;
+
+                  seats += '' + 
+                    '<div class="row mt-2">' +
+                    '    <div class="col-2 summary-data">Course </div>' +
+                    '    <div class="col-2 summary-data">City</div>' +
+                    '    <div class="col-2 summary-data">Date</div>' +
+                    '    <div class="col-5 ">' +
+                    '        <div class="row">' +
+                    '            <input type="text"' +
+                    '                class="form-control summary-input col">' +
+                    '            <input type="text"' +
+                    '                class="form-control summary-input col">' +
+                    '        </div>' +
+                    '' +
+                    '    </div>' +
+                    '    <div class="col-1 ">' +
+                    '        <button type="button"' +
+                    '            class="btn btn-dark remove-student-button ng-star-inserted "><i' +
+                    '                _ngcontent-xph-c158=""' +
+                    '                class="fa fa-times mr-0"></i></button>' +
+                    '' +
+                    '    </div>' +
+                    '</div>' +
+                    '';
+
+
+                
+            }
+
+
+             seats += '' + 
+                '        </div>' + 
+                '' + 
+                '    </div>' + 
+                '' + 
+                '</div>' + 
+                '';
+
+                $('#summery-data').append(seats);
+
         });
     </script>
 @endsection

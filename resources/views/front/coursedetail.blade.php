@@ -1,89 +1,77 @@
 @extends('front.layouts.app')
 @section('content')
-    <style>
-        .card-header {
-            background-color: #0d6efd;
-            color: white;
-        }
-
-        .card-body {
-            background-color: #f5f5f5;
-        }
-
-        .nav-tabs {
-            background-color: #0d6efd;
-            color: white;
-        }
-
-        .tab-content {
-            background-color: #f5f5f5;
-        }
-
-        .nav-link {
-            color: white;
-        }
-
-        .nav-link .active {
-            color: white;
-        }
-    </style>
-    <main class="container-fluid">
-        <section class="py-5  container">
-            <div class="row py-lg-5">
-                <div class="col-lg-6 col-md-12 col-sm-12">
-                    <ul class="nav nav-tabs" id="myTab" role="tablist">
-                        @foreach ($courses as $key => $item)
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link {{ $key == 0 ? 'active' : '' }}" id="courseId" data-bs-toggle="tab"
-                                    data-id="{{ $item->id }}" data-bs-target="#home{{ $item->id }}" type="button"
-                                    role="tab" aria-controls="home"
-                                    aria-selected="true">{{ $item->levelcourse->name }}</button>
-                            </li>
+<style>
+    .card-header{
+        background-color: #0d6efd;
+        color: white;
+    }
+    .card-body{
+        background-color: #f5f5f5;
+    }
+    .nav-tabs{
+        background-color: #0d6efd;
+        color: white;
+    }
+    .tab-content{
+        background-color: #f5f5f5;
+    }
+    .nav-link{
+        color: white;
+    }
+    .nav-link .active{
+        color: white;
+    }
+</style>
+<main class="container-fluid">
+    <section class="py-5  container">
+        <div class="row py-lg-5">
+          <div class="col-6">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                @foreach($courses as $key => $item)
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link {{ $key == 0 ? 'active' : '' }}" id="courseId"  data-bs-toggle="tab" data-id="{{ $item->id }}" data-bs-target="#home{{ $item->id }}" type="button" role="tab" aria-controls="home" aria-selected="true">{{ $item->levelcourse->name }}</button>
+                </li>
+                @endforeach
+              </ul>
+              <div class="tab-content" id="myTabContent">
+                @foreach($courses as $course)
+                  <div class="tab-pane fade show" id="home{{ $course->id }}" role="tabpanel" >
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col">Date</th>
+                          <th scope="col">Course</th>
+                          <th scope="col">City</th>
+                          <th scope="col">Status</th>
+                          <th scope="col"></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        @php
+                         $assign_courses = App\Models\AssignCourse::where('course_id',$course->id )->with('course')->get();
+                        @endphp
+                        @foreach($assign_courses as $item)
+                        <tr>
+                          <td scope="row">{{ $item->date }}</td>
+                          <td scope="row">{{ $item->course->category->name }} {{ ($item->course->levelcourse->name) }}</td>
+                          <td scope="row">{{ $item->course->citycourse->city->name }}</td>
+                          <td scope="row">{{ $item->course->status }}</td>
+                          <td scope="row"><button type="button" class="btn btn-dark btn-sm">Book Now</button></td>
+                        </tr>
                         @endforeach
-                    </ul>
-                    <div class="tab-content" id="myTabContent">
-                        @foreach ($courses as $course)
-                            <div class="tab-pane fade show" id="home{{ $course->id }}" role="tabpanel">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">Date</th>
-                                            <th scope="col">Course</th>
-                                            <th scope="col">City</th>
-                                            <th scope="col">Status</th>
-                                            <th scope="col"></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @php
-                                            $assign_courses = App\Models\AssignCourse::where('course_id', $course->id)
-                                                ->with('course')
-                                                ->get();
-                                        @endphp
-                                        @foreach ($assign_courses as $item)
-                                            <tr>
-                                                <td scope="row">{{ $item->date }}</td>
-                                                <td scope="row">{{ $item->course->category->name }}
-                                                    {{ $item->course->levelcourse->name }}</td>
-                                                <td scope="row">{{ $item->course->citycourse->city->name }}</td>
-                                                <td scope="row">{{ $item->course->status }}</td>
-                                                <td scope="row"><button type="button" class="btn btn-dark btn-sm">Book
-                                                        Now</button></td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
-                        @endforeach
-                    </div>
+                      </tbody>
+                    </table>
+                  </div>
+                @endforeach
+              </div>
+          </div>
+            <div class="col-6">
+              <div class="card">
+                <div class="card-header">
+                  Course Details
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <div class="card">
-                        <div class="card-header">
-                            Course Details
-                        </div>
-                        <div class="card-body">
-                            <div class="row" id="myHtmlCode">
+                <div class="card-body" >
+                  <div class="row" id="myHtmlCode">
 
                             </div>
                         </div>
