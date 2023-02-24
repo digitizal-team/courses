@@ -97,4 +97,330 @@
     align-items: center;
     text-align: center;
 }
+/* couses page css  */
+.course{
+    min-height: 422px;
+    width: 100%;
+    background-color: #003057;
+ 
+   
+}
+.course-child{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.course-p{
+    color: #FFFFFF;
+    font-size: 40px;
+    padding-top: 30px;
+    padding-left: 40px;
+}
+.course-row{
+ 
+    width: 90%;
 
+}
+.course-text{
+    color: #FFFFFF;
+   
+}
+.course-img-text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+    width: 120px;
+}
+.course-col{
+    justify-content: space-between;
+    display: flex;
+    width: 100%;
+ 
+}
+
+.card-header-2{
+    background-color: #0d6efd;
+    color: white;
+    height: 41px;
+    display: flex;
+    align-items: center;
+    padding-left: 16px;
+}
+.card-footer-2{
+    background-color: #0d6efd;
+    color: white;
+    height: 41px;
+    display: flex;
+    align-items: center;
+    padding-left: 16px;
+}
+.card-header-2 p{
+    background-color: #0d6efd;
+    color: white;
+  
+    
+}
+
+.card-body-2{
+    background-color: #f5f5f5;
+    height: 400px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+    font-size: 13px;
+}
+.course-ouline-one{
+    height: 116px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.course-ouline-child-1{
+    height: 116px;
+    width: 20%;
+    display: flex;
+    align-items: center;
+}
+.course-ouline-child-2{
+    height: 116px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.course-ouline-child-3{
+    width: 50%;
+
+    height: 116px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.view-courses{
+    height: 26px;
+    width: 100px;
+    background-color: #0064F0;
+    color: #FFFFFF;
+    border: 1px solid #0064F0;
+    border-radius: 13px;
+}
+.course-ouline-child-2-p-1{
+    margin-top: 35px;
+}
+.course-ouline-child-2-p-2{
+    margin-top: -13px;
+}
+.course-ouline-child-2-p-3{
+    margin-top: -13px;
+}
+
+
+/* new css 
+ */
+ .course-blue-box.large {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    min-height: 380px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+.course-blue-box {
+    background-color: #f5f5f5;
+    margin-bottom: 1em;
+    font-size: 0.8em;
+    width: 100%;
+}
+.course-blue-box>.title, .course-blue-box>.body>.title {
+    background-color: #003057;
+    padding: 0.6em;
+    cursor: pointer;
+    color: white;
+    margin-bottom: 1em;
+}
+.course-blue-box h2 {
+    font-size: 1em !important;
+    font-weight: 400 !important;
+    padding: 0;
+    margin: 0;
+    line-height: inherit;
+}
+.course-blue-box h1, .course-blue-box h2, .course-blue-box h3, .course-blue-box h4 {
+    font-size: 1.2em;
+}.macro-course-structure ul {
+    list-style: none;
+    margin-left: 1em;
+    margin-top: 0.5em;
+    padding: 0;
+}
+ul {
+    list-style-type: disc;
+}
+.macro-course-structure li {
+    overflow: hidden;
+    position: relative;
+    padding: 0 0 23px 62px;
+}
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+.macro-course-structure ul {
+    list-style: none;
+    margin-left: 1em;
+    margin-top: 0.5em;
+    padding: 0;
+}
+
+.macro-course-structure li::before {
+    content: '';
+    position: absolute;
+    left: 19px;
+    top: 0px;
+    width: 20px;
+    height: 999px;
+    border: 2px solid #e2e2e2;
+    border-width: 0px 0 0 9px;
+}
+
+li {
+    text-align: -webkit-match-parent;
+}
+.row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.macro-course-structure li .row {
+    min-height: 5em;
+}.col {
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    max-width: 100%;
+}.align-items-center {
+    -webkit-box-align: center !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+}
+.pb-3, .py-3 {
+    padding-bottom: 1rem !important;
+}
+.justify-content-end {
+    -webkit-box-pack: end !important;
+    -ms-flex-pack: end !important;
+    justify-content: flex-end !important;
+}
+.d-flex {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+}
+
+.macro-course-structure li {
+    overflow: hidden;
+    position: relative;
+    padding: 0 0 23px 62px;
+}
+.pb-3, .py-3 {
+    padding-bottom: 1rem !important;
+}
+.align-items-center {
+    -webkit-box-align: center !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+}
+
+.justify-content-end {
+    -webkit-box-pack: end !important;
+    -ms-flex-pack: end !important;
+    justify-content: flex-end !important;
+}
+.d-flex {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+}
+.col {
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    max-width: 100%;
+}
+.macro-course-structure li::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0px;
+    width: 48px;
+    height: 48px;
+    background-color: #e2e2e2;
+    border: 2px solid #e2e2e2;
+    border-radius: 50%;
+    background-size: 24px 24px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('http://localhost:8000/front/assets/images/powerbi.png');
+}
+.macro-course-structure li {
+    overflow: hidden;
+    position: relative;
+    padding: 0 0 23px 62px;
+}
+html {
+    font-family: sans-serif;
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+.course-blue-box h2 {
+    font-size: 1em !important;
+    font-weight: 400 !important;
+    padding: 0;
+    margin: 0;
+    line-height: inherit;
+}.course-blue-box h1, .course-blue-box h2, .course-blue-box h3, .course-blue-box h4 {
+    font-size: 1.2em;
+}
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+.macro-course-structure .view-course {
+    font-size: 11px;
+    background-color: #0064F0;
+    border-radius: 20px;
+    padding: 5px 10px;
+    color: white;
+    margin-right: 1em;
+    min-width: 85px;
+    text-align: center;
+    text-decoration: none;
+}
+.download a{
+    text-decoration: none;
+    color: #9c5407;
+}
