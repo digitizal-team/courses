@@ -1,0 +1,100 @@
+.main-image{
+    height: 450px;
+    width: 100%;
+    background-size: 100% 100%;
+}
+.main-heading{
+    font-size: 36px;
+    color: #0064f0;
+}
+.second-heading{
+    color: #212529;
+    font-size: 22px;
+    font-weight: 500;
+}
+.first-p{
+    color: #0d6efd;
+  
+}
+.first-ul li{
+    list-style: square;
+    color: #0d6efd;
+}
+.course-button{
+    background-color: #0064f0;
+    border: 1px solid #0064f0;
+    color: #FFFFFF;
+    height: 38px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.company-img{
+    height: 90px;
+    width: 252px;
+}
+.first-center-div{
+    min-height: 396px;
+    width: 100%;
+    background-color: #0d6efd;
+}
+.same-div-1{
+    min-height: 396px;
+    width: 90%;
+    margin: auto;
+    background-color: #0d6efd;
+
+}
+.same-div-2{
+    min-height: 396px;
+    width: 90%;
+    margin: auto;
+    background-color: #0d6efd;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.same-div-body{
+    height: 300px;
+    width: 100%;
+}
+.same-div-p{
+    font-size: 40px;250px
+    font-weight: 500;
+    color: #FFFFFF;
+    padding-top: 12px;
+}
+.same-div-p2{
+ color: #5A9DF8;
+ font-size: 20px;
+}
+.same-div-p3{
+    color: #FFFFFF;
+    line-height: 20px;
+}
+.same-div-button{
+    background-color: #0064F0;
+    border: 1px solid #88B7F8;
+   height: 38px;
+   width: 100%;
+   color: #FFFFFF;
+}
+.web-name{
+    font-size: 40px;
+    font-weight: 400;
+    color: #0d6efd;
+}
+.company-img-2{
+    height: 180px;
+    width: 250px;
+}
+.contact{
+    min-height: 700px;
+    width: 40%;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+

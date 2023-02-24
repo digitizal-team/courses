@@ -1,23 +1,46 @@
 @extends('front.layouts.app')
 @section('content')
+<style>
+    .card-header{
+        background-color: #0d6efd;
+        color: white;
+    }
+    .card-body{
+        background-color: #f5f5f5;
+    }
+    .nav-tabs{
+        background-color: #0d6efd;
+        color: white;
+    }
+    .tab-content{
+        background-color: #f5f5f5;
+    }
+    .nav-link{
+        color: white;
+    }
+    .nav-link .active{
+        color: white;
+    }
+</style>
 <main class="container-fluid">
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> d1cdc6f604443362f436554a73f1db5b9aa55030
     <section class="py-5  container">
         <div class="row py-lg-5">
           <div class="col-6">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
-              {{-- @dd($courses) --}}
-                @foreach($courses as $item)
+                @foreach($courses as $key => $item)
                 <li class="nav-item" role="presentation">
-                  <button class="nav-link" id="courseId"  data-bs-toggle="tab" data-id="{{ $item->id }}" data-bs-target="#home{{ $item->id }}" type="button" role="tab" aria-controls="home" aria-selected="true">{{ $item->levelcourse->name }}</button>
+                  <button class="nav-link {{ $key == 0 ? 'active' : '' }}" id="courseId"  data-bs-toggle="tab" data-id="{{ $item->id }}" data-bs-target="#home{{ $item->id }}" type="button" role="tab" aria-controls="home" aria-selected="true">{{ $item->levelcourse->name }}</button>
                 </li>
                 @endforeach
               </ul>
               <div class="tab-content" id="myTabContent">
                 @foreach($courses as $course)
-                
                   <div class="tab-pane fade show" id="home{{ $course->id }}" role="tabpanel" >
                     <table class="table">
                       <thead>
@@ -48,28 +71,14 @@
                 @endforeach
               </div>
           </div>
-
             <div class="col-6">
               <div class="card">
                 <div class="card-header">
                   Course Details
                 </div>
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-6">
-                      <p>Price</p>
-                      <p>Duration</p>
-                      <p>Time</p>
-                      <p>Class Size (max)</p>
-                      <p>Class Size (avg)</p>
-                      <p>Reference Materials</p>
-                      <p>Training Computer</p>
-                      <p>CPD Hours</p>
-                      <p>Delivery</p>
-                    </div>
-                    <div class="col-6" id="myHtmlCode">
+                <div class="card-body" >
+                  <div class="row" id="myHtmlCode">
 
-                    </div>
                   </div>
                 </div>
               </div>
@@ -101,16 +110,28 @@
                 $('#myHtmlCode').empty();
                 $('#myHtmlCode').append(myHtmlCode);
                 var myHtmlCode =
-                '<p>'+data.data.price+'</p>'+
-                '<p>'+data.data.duration+'</p>'+
-                '<p>'+data.data.time+'</p>'+
-                '<p>'+data.data.class_size_max+'</p>'+
-                '<p>'+data.data.class_size_min+'</p>'+
-                '<p>'+data.data.reference_material+'</p>'+
-                '<p>'+data.data.training_computer+'</p>'+
-                '<p>'+data.data.CPD_hour+'</p>'+
-                '<p>'+data.data.delivery+'</p>'
-                ;
+                '<div class="col-6">'+
+                      '<p>Price</p>'+
+                      '<p>Duration</p>'+
+                      '<p>Time</p>'+
+                      '<p>Class Size (max)</p>'+
+                      '<p>Class Size (avg)</p>'+
+                      '<p>Reference Materials</p>'+
+                      '<p>Training Computer</p>'+
+                      '<p>CPD Hours</p>'+
+                      '<p>Delivery</p>'+
+                    '</div>'+
+                    '<div class="col-6" id="myHtmlCode">'+
+                        '<p>'+data.data.price+'</p>'+
+                        '<p>'+data.data.duration+'</p>'+
+                        '<p>'+data.data.time+'</p>'+
+                        '<p>'+data.data.class_size_max+'</p>'+
+                        '<p>'+data.data.class_size_min+'</p>'+
+                        '<p>'+data.data.reference_material+'</p>'+
+                        '<p>'+data.data.training_computer+'</p>'+
+                        '<p>'+data.data.CPD_hour+'</p>'+
+                        '<p>'+data.data.delivery+'</p>'
+                    '</div>';
                 console.log(data.data.price)
                 $('#myHtmlCode').append(myHtmlCode);
               },
