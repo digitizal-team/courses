@@ -267,7 +267,6 @@
 
     <div class="container">
         <form>
-
             <div class="row">
                 <div class="col"></div>
                 <div class="col-sm-7">
@@ -328,17 +327,6 @@
                 </div> --}}
 
 
-
-
-
-
-
-
-
-
-
-
-
                     <div class="row">
                         <div class="col-12">
                             <div class="form-step" id="step-1">
@@ -357,16 +345,16 @@
                                                 <div class="col-sm-3">
                                                     <select name="" id="course" class="form-select form-select-sm"
                                                         aria-label=".form-select-sm example">
-                                                        <option value="">Select Course</option>
-                                                        
+                                                        <option >Select Course</option>
                                                         @php($category = '');
                                                         @foreach ($courses as $course)
                                                             @if ($category != $course->category->name)
-                                                                <option value="" {{ $course->id == $assign_course->course_id ? 'selected' : '' }}  class="category-option" disabled>
+                                                                <option value="" class="category-option" disabled>
                                                                     {{ $course->category->name }}</option>
                                                             @endif
                                                             @php($category = $course->category->name)
-                                                            <option value="{{ $course->id }}">
+                                                            <option value="{{ $course->id }}"
+                                                                {{ $course->level_id == $assign_course->course->level_id ? 'selected' : '' }}>
                                                                 {{ $course->levelcourse->name }}</option>
                                                         @endforeach
                                                     </select>
@@ -464,11 +452,6 @@
                                                 </div> --}}
                                             </div>
 
-
-
-
-
-
                                             <!---->
                                             <!---->
                                             <!---->
@@ -519,15 +502,86 @@
                                             </div>
                                         </div>
                                     </div>
-
+                                </div>
+                            </div>
+                            <div  id="step-2" class="card mb-3 course-card form-step" style="display:none;">
+                                <div class="card-body small-padding">
+                                    <div class="form-group row mobile-hidden">
+                                        <div class="col-sm-12">
+                                            <div class="form-section-title">Billing Contact
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row mb-0">
+                                        <div class="col-6 pt-3">
+                                            <input type="email" id="billemail" name="billemail" placeholder="Email"  class="form-control" required />
+                                        </div>
+                                        <div class="col-6 pt-3">
+                                            <input type="text" id="billphone" name="billphone" placeholder="Phone"  class="form-control" required />
+                                        </div>
+                                        <div class="col-6 pt-3">
+                                            <input type="text" id="billfname" name="billfname" placeholder="first name"  class="form-control" required />
+                                        </div>
+                                        <div class="col-6 pt-3">
+                                            <input type="text" id="billlname" name="billlname" placeholder="Last name"  class="form-control" required />
+                                        </div>
+         
+                                    </div>
+                                    <!---->
                                 </div>
 
+                                <div class="card-body small-padding">
+                                    <div class="form-group row mobile-hidden">
+                                        <div class="col-sm-12">
+                                            <div class="form-section-title">Billing Address
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row mb-0">
+                                        <div class="col-12 pt-3">
+                                            <input type="text" id="billaddline1" name="billaddline1" placeholder="Address line 1"  class="form-control" required />
+                                        </div>
+                                        <div class="col-12 pt-3">
+                                            <input type="text" id="billaddline2" name="billaddline2" placeholder="Address line 2"  class="form-control" required />
+                                        </div>
+                                        <div class="col-6 pt-4">
+                                            <input type="text" id="billcity" name="billcity" placeholder="Suburb / City"  class="form-control" required />
+                                        </div>
+                                        <div class="col-6 pt-4">
+                                            <input type="text" id="billstate" name="billstate" placeholder="State"  class="form-control" required />
+                                        </div>
+                                        <div class="col-6 pt-4">
+                                            <input type="text" id="billzipcode" name="billzipcode" placeholder="Postcode / Zip code"  class="form-control" required />
+                                        </div>
+         
+                                    </div>
+                                    <!---->
+                                </div>
 
-
-
+                                <div class="card-body small-padding">
+                                    <div class="form-group row mobile-hidden">
+                                        <div class="col-sm-12">
+                                            <div class="form-section-title">Company (optional)
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row mb-0">
+                                        <div class="col-4 pt-3">
+                                            <input type="text" id="billcname" name="billcname" placeholder="Company name"  class="form-control" required />
+                                        </div>
+                                        <div class="col-4 pt-3">
+                                            <input type="text" id="billeposition" name="billeposition" placeholder="Employee position"  class="form-control" required />
+                                        </div>
+                                        <div class="col-4 pt-3">
+                                            <input type="text" id="billporder" name="billporder" placeholder="Purchase order"  class="form-control" required />
+                                        </div>
+                                    </div>
+                                    <!---->
+                                </div>
 
                             </div>
-                            <div class="form-step" id="step-2" style="display:none;">
+
+                            {{-- <div class="form-step"  id="step-2" style="display:none;">
                                 <div class="form-group">
                                     <label for="phone">Phone:</label>
                                     <input type="tel" id="phone" name="phone" class="form-control" required />
@@ -536,19 +590,71 @@
                                     <label for="address">Address:</label>
                                     <input type="text" id="address" name="address" class="form-control" required />
                                 </div>
-                            </div>
+                            </div> --}}
+
+
                             <div class="form-step" id="step-3" style="display:none;">
-                                <div class="form-group">
-                                    <label for="username">Username:</label>
-                                    <input type="text" id="username" name="username" class="form-control"
-                                        required />
+
+                                <div class="card mb-3 course-card">
+                                    <div class="card-body small-padding">
+                                        <div class="form-group row mobile-hidden">
+                                            <div class="col-sm-12">
+                                                <div class="form-section-title">Order Summary
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <table class="table table-sm border-0">
+                                            <thead>
+                                              <tr>
+                                                <th scope="col">Course</th>
+                                                <th scope="col">City</th>
+                                                <th scope="col">Date</th>
+                                                <th scope="col">Student</th>
+                                                <th scope="col">Student Email</th>
+                                                <th scope="col">Price</th>
+                                              </tr>
+                                            </thead>
+                                            <tbody id="ordersummary">
+                                              <tr>
+                                                <th scope="row">1</th>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                                <td>@mdo</td>
+                                                <td>@mdo</td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        <!---->
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="password">Password:</label>
-                                    <input type="password" id="password" name="password" class="form-control"
-                                        required />
+
+                                <div class="card mb-3 course-card">
+                                    <div class="card-body small-padding">
+                                        <div class="form-group row mobile-hidden">
+                                            <div class="col-sm-12">
+                                                <div class="form-section-title">Order Summary
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row" id="billingdetail">
+                                            <div class="col-6">
+                                                <p>Name : <span id="showname"></span></p>
+                                                <p>company : <span id="showcompany"></span></p>
+                                                <p>Address : <span id="showaddress"></span></p>
+                                            </div>
+                                            <div class="col-6">
+                                                <p>Email : <span id="showemail"></span></p>
+                                                <p>Phone : <span id="showphone"></span></p>                                                
+                                            </div>
+                                        </div>
+                                        <!---->
+                                    </div>
                                 </div>
+
+
                             </div>
+
                         </div>
                     </div>
 
@@ -682,54 +788,73 @@
 
 
     <script>
-        ///// get location /////
-        $(document).on("change", '#course', function(e) {
-            var dataId = $(this).val();
-            $.ajax({
-                type: 'GET',
-                url: "{{ url('/getlocation') }}" + "/" + dataId,
-                dataType: 'json',
-                success: (data) => {
-                    $('#location').empty();
+        $(document).ready(function() {
+            var course_id = '{{ $assign_course->course_id }}';
+            var city_id = '{{ $assign_course->city_id }}';
+            var id = '{{ $assign_course->id }}';
+            getlocation(course_id)
+            ///// get location /////
+            $(document).on("change", '#course', function(e) {
+                $('#location').empty();
+                $('#location').append('<option value="">Select Location</option>');
+                $('#session').empty();
+                $('#session').hide();
+                $('#no_of_seats').empty();
+                $('#no_of_seats').hide();
 
-                    $('#location').append('<option value="">Select Location</option>');
-                    $.each(data, function(index, element) {
-                        $('#location').append('<option value="' + element['city']['id'] + '">' +
-                            element['city']['name'] +
-                            '</option>');
-
-                    });
-                },
+                var dataId =  $(this).val();
+                getlocation(dataId)
             });
-        });
-
-        ///// get session /////
-        $(document).on("change", '#location', function(e) {
-            var city_id = $(this).val();
-            var course_id = $('#course').find(":selected").val();
-            $.ajax({
-                type: 'GET',
-                url: "{{ url('/getsession') }}" + "/" + course_id + "/" + city_id,
-                dataType: 'json',
-                success: (data) => {
-                    console.log(data)
-                    $('#session').empty();
-                    $('#session').append('<option value="">Select Session</option>');
-                    $.each(data, function(index, element) {
-                        $('#session').append('<option value="' + element['id'] + '">' + element[
-                                'date'] + '&nbsp;&nbsp;&nbsp;(' + element['no_of_seats'] +
-                            ')</option>');
-
-                    });
-                },
+            function getlocation(dataId) {
+                $.ajax({
+                    type: 'GET',
+                    url: "{{ url('/getlocation') }}" + "/" + dataId,
+                    dataType: 'json',
+                    success: (data) => {
+                        $('#location').empty();
+                        $('#location').append('<option value="">Select Location</option>');
+                        $.each(data, function(index, element) {
+                            // $('#location').append('<option  value="' + element['city']['id'] + '">' + element['city']['name'] + '</option>');
+                            $("#location").append($('<option></option>').attr("value", element['city']['id']).attr("selected", element['city']['id'] == city_id ? true : false).text(element['city']['name']));
+                        });
+                    },
+                });
+            }
+            ///// get session /////
+            getdate(city_id,course_id)
+            $(document).on("change", '#location', function(e) {
+                $('#session').show();
+                $('#session').append('<option value="">Select session</option>');
+                var city_id =  $(this).val();
+                var course_id = $('#course').find(":selected").val();
+                getdate(city_id,course_id)
             });
-        });
-
-
+            function getdate(city_id,course_id) {
+                    $.ajax({
+                        type: 'GET',
+                        url: "{{ url('/getsession') }}" + "/" + course_id + "/" + city_id,
+                        dataType: 'json',
+                        success: (data) => {
+                            $('#session').empty();
+                            $('#session').append('<option value="">Select Session</option>');
+                            $.each(data, function(index, element) {
+                                // $('#session').append('<option value="' + element['id'] + '">' + element[ 'date'] + '&nbsp;&nbsp;&nbsp;(' + element['no_of_seats'] + ')</option>');
+                                $("#session").append($('<option></option>').attr("value", element['id']).attr("selected", element['city_id'] == city_id ? true : false).text(element[ 'date'] + ' - ' + '(' + element['no_of_seats'] + ')' ));
+                            });
+                        },
+                    });
+            }
 
         ///// No of Seats /////
+        getdseats(id)
         $(document).on("change", '#session', function(e) {
+            $('#no_of_seats').show();
+            $('#no_of_seats').empty();
+            $('#no_of_seats').append('<option value="">Select Seats</option>');
             var id = $(this).val();
+            getdseats(id)
+        });
+        function getdseats(id,no_of_seats) {
             $.ajax({
                 type: 'GET',
                 url: "{{ url('/getseats') }}" + "/" + id,
@@ -743,77 +868,148 @@
                     }
                 },
             });
-        });
-
-
+        }
+    });
 
         ///// No of Seats /////
         $(document).on("change", '#no_of_seats', function(e) {
+            var course_id = $('#course').val();
+            var city_id = $('#location').val();
+            var session_id = $('#session').val();
+
+            var course = $("#course option:selected").text();
+            var city = $("#location option:selected").text();
+            var session = $("#session option:selected").text().split('- ');
+
             var students = $(this).val();
+    
 
             // $('#no_of_seats').append('<option value="">No. Student</option>');
 
 
-                var seats = '' + 
-                ' <div class="form-group row mb-0">' + 
-                '    <div class="col booking-summary-card ng-touched ng-dirty ng-invalid">' + 
-                '        <div class="row summery-head">' + 
-                '            <div class="col-2 summary-heading">Course </div>' + 
-                '            <div class="col-2 summary-heading">City</div>' + 
-                '            <div class="col-2 summary-heading">Date</div>' + 
-                '            <div class="col-5 ">' + 
-                '                <div class="row">' + 
-                '                    <div class="summary-heading col ">Student Name</div>' + 
-                '                    <div class="summary-heading col">Student Email</div>' + 
-                '                </div>' + 
-                '            </div>' + 
-                '            <div class="col-1">' + 
-                '            </div>' + 
-                '        </div>' + 
-                '        <div id="student-summery">'; 
+            var seats = '' +
+                ' <div class="form-group row mb-0 section">' +
+                '    <div class="col booking-summary-card ng-touched ng-dirty ng-invalid">' +
+                '        <div class="row summery-head">' +
+                '            <div class="col-2 summary-heading">Course </div>' +
+                '            <div class="col-2 summary-heading">City</div>' +
+                '            <div class="col-2 summary-heading">Date</div>' +
+                '            <div class="col-5 ">' +
+                '                <div class="row">' +
+                '                    <div class="summary-heading col ">Student Name</div>' +
+                '                    <div class="summary-heading col">Student Email</div>' +
+                '                </div>' +
+                '            </div>' +
+                '            <div class="col-1">' +
+                '            </div>' +
+                '        </div>' +
+                '        <div id="student-summery">';
 
             for (let index = 0; index < students; index++) {
                 let no_of_student = index + 1;
 
-                  seats += '' + 
-                    '<div class="row mt-2">' +
-                    '    <div class="col-2 summary-data">Course </div>' +
-                    '    <div class="col-2 summary-data">City</div>' +
-                    '    <div class="col-2 summary-data">Date</div>' +
+                seats += '' +
+                    '<div class="row mt-2 row-data">' +
+                    '    <div class="col-2 summary-data scourse" data-id="' + course_id + '">' + course + ' </div>' +
+                    '    <div class="col-2 summary-data scity" data-id="' + city_id + '">' + city + '</div>' +
+                    '    <div class="col-2 summary-data ssession" data-id="' + session_id + '">' + session[0] + '</div>' +
                     '    <div class="col-5 ">' +
                     '        <div class="row">' +
                     '            <input type="text"' +
-                    '                class="form-control summary-input col">' +
+                    '                class="form-control summary-input col sname">' +
                     '            <input type="text"' +
-                    '                class="form-control summary-input col">' +
+                    '                class="form-control summary-input col semail">' +
                     '        </div>' +
                     '' +
                     '    </div>' +
                     '    <div class="col-1 ">' +
                     '        <button type="button"' +
-                    '            class="btn btn-dark remove-student-button ng-star-inserted "><i' +
+                    '          id="close-btn"  class="btn btn-dark remove-student-button ng-star-inserted "><i' +
                     '                _ngcontent-xph-c158=""' +
                     '                class="fa fa-times mr-0"></i></button>' +
                     '' +
                     '    </div>' +
                     '</div>' +
                     '';
-
-
-                
             }
 
 
-             seats += '' + 
-                '        </div>' + 
-                '' + 
-                '    </div>' + 
-                '' + 
-                '</div>' + 
+            seats += '' +
+                '        </div>' +
+                '' +
+                '    </div>' +
+                '' +
+                '</div>' +
                 '';
 
-                $('#summery-data').append(seats);
+            $('#summery-data').append(seats);
 
         });
+
+
+
+       $(document).on('click',".remove-student-button" ,function(){
+        var check = $(this).parent().parent().parent().find('.row-data').length;
+            if (check != 1) {
+                $(this).closest(".row").remove();
+            }else{
+                $(this).parent().parent().parent().parent().remove();
+                $(this).closest(".row").remove();
+            }
+       })
+
+       $(document).on('click',"#next-btn" ,function(){
+            var billingEmail =  $('#billingEmail').val();
+        // bill contact
+            var billemail =  $('#billemail').val();
+            var billphone =  $('#billphone').val();
+            var billfname =  $('#billfname').val();
+            var billlname =  $('#billlname').val();
+        // bill address
+            var billaddline1 =  $('#billaddline1').val();
+            var billaddline2 =  $('#billaddline2').val();
+            var billcity =  $('#billcity').val();
+            var billstate =  $('#billstate').val();
+            var billzipcode =  $('#billzipcode').val();
+        // company optional
+            var billcname =  $('#billcname').val();
+            var billeposition =  $('#billeposition').val();
+            var billporder =  $('#billporder').val()
+        //row
+            let data = []
+
+            var scourse =  $('.scourse').text()
+            var scity =  $('.scity').text()
+            var ssession =  $('.ssession').text()
+            var sname =  $('.sname').val()
+            var semail =  $('.semail').val()
+
+            // $(this.scourse).each(function(index,value){
+            //     alert(value)
+            // })
+
+
+
+            // alert(scourse)
+            // alert(scity)
+            // alert(ssession)
+            // alert(sname)
+            // alert(semail)
+            // console.log(billingEmail)
+            // console.log(billemail)
+            // console.log(billphone)
+            // console.log(billfname)
+            // console.log(billlname)
+            // console.log(billaddline1)
+            // console.log(billaddline2)
+            // console.log(billcity)
+            // console.log(billstate)
+            // console.log(billstate)
+            // console.log(billzipcode)
+            // console.log(billcname)
+            // console.log(billeposition)
+            // console.log(billporder)
+       })
+
     </script>
 @endsection
