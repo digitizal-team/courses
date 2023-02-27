@@ -226,7 +226,7 @@
     -webkit-box-flex: 1;
     -ms-flex: 1;
     flex: 1;
-    min-height: 380px;
+    min-height: 530px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -424,3 +424,55 @@ h2 {
     text-decoration: none;
     color: #9c5407;
 }
+div.scrollmenu {
+    background-color: #333;
+    overflow: auto;
+    white-space: nowrap;
+    height: 63px;
+  }
+  
+  div.scrollmenu a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 11px;
+    text-decoration: none;
+  }
+  
+  div.scrollmenu a:hover {
+    background-color: #777;
+  }
+  .other-courses{
+    height: 300px;
+    width: 100%;
+  
+ 
+
+  }
+  .other-courses-logo{
+    width: 100%;
+    background-color: #f5f5f5;
+    min-height: 300px;
+  }
+  .Course-Rating{
+    height: 300px;
+    width: 100%;
+    background-color: #f5f5f5;
+  }
+  .other-course-img{
+    height: 75px;
+    width: 72px;
+    margin-top: 20px;
+  }
+  .Course-by-cities{
+    min-height: 300px;
+    width: 100%;
+    
+  }
+  .Course-by-cities ul{
+    min-height: 260px;
+    width: 100%;
+    line-height: 30px;
+  }
+
+  

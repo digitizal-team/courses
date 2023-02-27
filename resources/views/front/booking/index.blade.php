@@ -419,6 +419,7 @@
                                             <!---->
                                             <div class="form-group row mt-3 mb-2">
                                                 <div class="col-sm-12">
+                                                    <p class="price">${{ $assign_course->course->price }}</p>
                                                     <div class="form-sub-title">Course Booking Summary
                                                     </div>
                                                 </div>
@@ -615,14 +616,6 @@
                                               </tr>
                                             </thead>
                                             <tbody id="ordersummary">
-                                              <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                                <td>@mdo</td>
-                                                <td>@mdo</td>
-                                              </tr>
                                             </tbody>
                                           </table>
                                         <!---->
@@ -873,6 +866,7 @@
 
         ///// No of Seats /////
         $(document).on("change", '#no_of_seats', function(e) {
+            var price = $(".price").text();
             var course_id = $('#course').val();
             var city_id = $('#location').val();
             var session_id = $('#session').val();
@@ -882,6 +876,10 @@
             var session = $("#session option:selected").text().split('- ');
 
             var students = $(this).val();
+            totalprice = price * students;
+            $('.price').append(totalprice);
+
+            // alert(price)
     
 
             // $('#no_of_seats').append('<option value="">No. Student</option>');
@@ -913,12 +911,12 @@
                     '    <div class="col-2 summary-data scourse" data-id="' + course_id + '">' + course + ' </div>' +
                     '    <div class="col-2 summary-data scity" data-id="' + city_id + '">' + city + '</div>' +
                     '    <div class="col-2 summary-data ssession" data-id="' + session_id + '">' + session[0] + '</div>' +
-                    '    <div class="col-5 ">' +
+                    '    <div class="col-5">' +
                     '        <div class="row">' +
                     '            <input type="text"' +
-                    '                class="form-control summary-input col sname">' +
+                    '                class="form-control summary-input col sname" name="sname">' +
                     '            <input type="text"' +
-                    '                class="form-control summary-input col semail">' +
+                    '                class="form-control summary-input col semail" name="semail">' +
                     '        </div>' +
                     '' +
                     '    </div>' +
@@ -959,24 +957,82 @@
        })
 
        $(document).on('click',"#next-btn" ,function(){
+            //step 1 
+            var course =  $('#course').val()
+            var course_text  =  $('#course option:selected').text()
+            var location =  $('#location').val()
+            var location_text =  $('#location option:selected').text()
+            var session =  $('#session').val()
+            var session_text  =  $('#session option:selected').text()
+            var no_of_seats =  $('#no_of_seats').val()
             var billingEmail =  $('#billingEmail').val();
-        // bill contact
-            var billemail =  $('#billemail').val();
-            var billphone =  $('#billphone').val();
-            var billfname =  $('#billfname').val();
-            var billlname =  $('#billlname').val();
-        // bill address
-            var billaddline1 =  $('#billaddline1').val();
-            var billaddline2 =  $('#billaddline2').val();
-            var billcity =  $('#billcity').val();
-            var billstate =  $('#billstate').val();
-            var billzipcode =  $('#billzipcode').val();
-        // company optional
-            var billcname =  $('#billcname').val();
-            var billeposition =  $('#billeposition').val();
-            var billporder =  $('#billporder').val()
-        //row
-            let data = []
+
+            var sname = [];
+            $('.sname').each(function(){
+                sname.push({ name: this.name, value: this.value }); 
+            });          
+            var semail = [];
+            $('.semail').each(function(){
+                semail.push({ name: this.name, value: this.value }); 
+            });
+
+            var res = $.map( sname.length > semail.length ? sname : semail, function(v,i) {
+                var chr = sname[i];
+                var num = semail[i];
+                return [chr,num];
+            });
+
+            // console.log(res)
+            // $().each(function(index,value){
+            //     data = $(this).find(".scourse").text()
+            //     alert(data)
+            // });
+
+            $('#ordersummary').empty();
+            $(".row-data").each(function(index,value){
+                var myHtmlCode =
+                '<tr>'+
+                    '<th scope="row">'+$(this).find(".scourse").text()+'</th>'+
+                    '<td>'+$(this).find(".scity").text()+'</td>'+
+                    '<td>'+$(this).find(".ssession").text()+'</td>'+
+                    '<td>'+$(this).find(".sname").val()+'</td>'+
+                    '<td>'+$(this).find(".semail").val()+'</td>'+
+                    '<td>'+$(".price").text()+'</td>'+
+                '</tr>';
+                $('#ordersummary').append(myHtmlCode);
+            });
+
+            //use values after the loop
+            //step 1 close
+
+            //step 2
+
+            // bill contact
+                var billemail =  $('#billemail').val();
+                $('#showemail').append(billemail);
+                var billphone =  $('#billphone').val();
+                $('#showphone').append(billphone);
+                var billfname =  $('#billfname').val();
+                $('#showname').append(billfname);
+                var billlname =  $('#billlname').val();
+            // bill address
+                var billaddline1 =  $('#billaddline1').val();
+                $('#showcompany').append(billaddline1);
+                var billaddline2 =  $('#billaddline2').val();
+                var billcity =  $('#billcity').val();
+                var billstate =  $('#billstate').val();
+                var billzipcode =  $('#billzipcode').val();
+            // company optional
+                var billcname =  $('#billcname').val();
+                var billeposition =  $('#billeposition').val();
+                var billporder =  $('#billporder').val()
+            //row
+
+
+            
+            //step 2 end
+
+            //step 3 
 
             var scourse =  $('.scourse').text()
             var scity =  $('.scity').text()
@@ -984,32 +1040,9 @@
             var sname =  $('.sname').val()
             var semail =  $('.semail').val()
 
-            // $(this.scourse).each(function(index,value){
-            //     alert(value)
-            // })
-
-
-
-            // alert(scourse)
-            // alert(scity)
-            // alert(ssession)
-            // alert(sname)
-            // alert(semail)
-            // console.log(billingEmail)
-            // console.log(billemail)
-            // console.log(billphone)
-            // console.log(billfname)
-            // console.log(billlname)
-            // console.log(billaddline1)
-            // console.log(billaddline2)
-            // console.log(billcity)
-            // console.log(billstate)
-            // console.log(billstate)
-            // console.log(billzipcode)
-            // console.log(billcname)
-            // console.log(billeposition)
-            // console.log(billporder)
+            //step 3 
        })
 
     </script>
+
 @endsection

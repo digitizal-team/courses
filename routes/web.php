@@ -15,6 +15,7 @@ use App\Http\Controllers\Front\{
     CourseDetailController,
     BookingController,
 };
+use App\Http\Controllers\CourseLevelController;
 
 
 
@@ -33,6 +34,7 @@ Route::resources([
 Route::get('/',[HomeController::class,'index'])->name('home.index');
 Route::get('/course/detail/{id}',[CourseDetailController::class,'courseDetails'])->name('course.details');
 Route::get('/getCourseData/{dataId}',[CourseDetailController::class,'courseData']);
+Route::get('/getcitydata/{dataId}',[CourseDetailController::class,'getcitydata']);
 Route::get('booking/{id?}',[BookingController::class,'index'])->name('course.booking');
 route::get('about',function(){
     return view('front.about');
@@ -40,9 +42,12 @@ route::get('about',function(){
 route::get('contact',function(){
     return view('front.contact');
 });
+Route::get('/course/level/{id}',[CourseDetailController::class,'courselevelfunc']);
+Route::get('courses',[CourseDetailController::class,'courses']);
 Route::get('/getlocation/{dataId}',[BookingController::class,'getlocation']);
 Route::get('/getsession/{course_id}/{city_id}',[BookingController::class,'getsession']);
 Route::get('/getseats/{id}',[BookingController::class,'getseats']);
+
 
 
 
