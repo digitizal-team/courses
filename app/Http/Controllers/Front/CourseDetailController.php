@@ -20,8 +20,6 @@ class CourseDetailController extends Controller
         
         $courses_id = Course::where('category_id',$id)->with('assigncourse')->pluck('id')->all();
         $courselevel = LevelCourse::all();
-        // dd($courses_id,$assign_courses);
-        // dd($courses);
         
         return view('front/coursedetail',compact('courses','courselevel'));
 
@@ -34,7 +32,6 @@ class CourseDetailController extends Controller
         ->select('courses.*', 'categories.name')
         ->where('courses.id',$id)
         ->first();
-        // dd($course);
 
         return response()->json(['data' => $coursedata]);
     }
@@ -46,8 +43,7 @@ class CourseDetailController extends Controller
         ->select('courses.*', 'assign_courses.*')
         ->where('assign_courses.city_id',$id)
         ->first();
-        
-        // $courses = Course::with('assigncourse')->get();
+
         return response()->json(['data' => $coursedata]);
     }
     public function courselevelfunc($id){
@@ -60,8 +56,7 @@ class CourseDetailController extends Controller
         ->join('cities','assign_courses.city_id','cities.id')
         ->get();
 
-        // return $coursebycities;
-        return view('Front.courselevel',compact('coursebycities','levelid','courselevel'));
+        return view('front.courselevel',compact('coursebycities','levelid','courselevel'));
         
     }
     
@@ -72,21 +67,9 @@ class CourseDetailController extends Controller
         ->select('courses.*', 'categories.name')
         ->where('courses.id',$id)
         ->first();
-        // dd($course);
+  
 
         return response()->json(['data' => $coursedata]);
     }
-    public function courses()
-    {
-        $courses = Course::all();
 
-        
- 
-        $courselevel = LevelCourse::all();
-        // dd($courses_id,$assign_courses);
-        // dd($courses);
-        
-        return view('front.courses',compact('courses','courselevel'));
-
-    }
 }

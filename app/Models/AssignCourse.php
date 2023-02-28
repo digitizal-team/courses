@@ -13,8 +13,6 @@ class AssignCourse extends Model
         return $this->belongsTo(Course::class);
     }
 
-   
-
     public function city(){
         return $this->belongsTo(City::class);
     }

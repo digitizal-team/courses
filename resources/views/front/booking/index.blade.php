@@ -263,27 +263,38 @@
             color: #666;
             font-size: 15px;
         }
+        .online-col[_ngcontent-iuc-c158] {
+            width: 340px;
+        }
+        .btn-link.action-text[_ngcontent-iuc-c158] {
+            font-size: 13px;
+        }
+        .action-text {
+            color: rgb(247, 144, 43);
+        }
+        .text-right {
+            text-align: right !important;
+        }
     </style>
-
     <div class="container">
         <form>
             <div class="row">
                 <div class="col"></div>
                 <div class="col-sm-7">
                     <div class="md-stepper-horizontal orange">
-                        <div class="md-step">
+                        <div class="md-step active ">
                             <div class="md-step-circle"><span>1</span>
                             </div>
                             {{-- <div  class="md-step-bar-left"></div> --}}
                             <div class="md-step-bar-right"></div>
                         </div>
-                        <div class="md-step active">
+                        <div class="md-step ">
                             <div class="md-step-circle"><span>2</span>
                             </div>
                             <div class="md-step-bar-left"></div>
                             <div class="md-step-bar-right"></div>
                         </div>
-                        <div class="md-step">
+                        <div class="md-step ">
                             <div class="md-step-circle"><span>3</span>
                             </div>
                             <div class="md-step-bar-left"></div>
@@ -358,6 +369,8 @@
                                                                 {{ $course->levelcourse->name }}</option>
                                                         @endforeach
                                                     </select>
+                                                    <p id="course-price"></p>
+                                                    <input type="hidden" name="" value="" id="course-price-get">
 
                                                 </div>
 
@@ -419,7 +432,6 @@
                                             <!---->
                                             <div class="form-group row mt-3 mb-2">
                                                 <div class="col-sm-12">
-                                                    <p class="price">${{ $assign_course->course->price }}</p>
                                                     <div class="form-sub-title">Course Booking Summary
                                                     </div>
                                                 </div>
@@ -456,6 +468,7 @@
                                             <!---->
                                             <!---->
                                             <!---->
+                                            {{-- <div class="total_sub"></div> --}}
                                             <div role="alert" class="alert alert-info mb-0 mt-4"> No
                                                 courses have been added to the booking. Please select a course above. </div>
                                             <!---->
@@ -663,16 +676,12 @@
                     </div>
 
 
-                    {{-- <div class="row">
+                    <div class="row">
                         <div class="col-12">
-                            <button type="button" class="btn btn-secondary" id="prev-btn" disabled>Previous</button>
-                            <button type="button" class="btn btn-primary" id="next-btn">Next</button>
-
-
                             <button type="submit" class="btn btn-success" id="submit-btn"
                                 style="display:none;">Submit</button>
                         </div>
-                    </div> --}}
+                    </div>
                 </div>
             </div>
         </form>
@@ -730,7 +739,7 @@
                 $nextStep.show();
 
                 // Update the step navigation
-                $('.md-step-circle.active').removeClass('active').next().addClass('active');
+                $('.md-step .active').removeClass('active').next().addClass('active');
                 // $('.step-label.active').removeClass('active').next().addClass('active');
 
                 // Enable the previous button
@@ -747,6 +756,8 @@
             // Handle the click event for the previous button
             $('#prev-btn').on('click', function() {
                 // Get the current step
+                $('.md-step.active').removeClass('active').prev().addClass('active');
+
                 var $currentStep = $('#step-' + currentStep);
 
                 // Hide the current step
@@ -762,7 +773,7 @@
                 $prevStep.show();
 
                 // Update the step navigation
-                $('.md-step-circle.active').removeClass('active').prev().addClass('active');
+                $('.md-step .active').removeClass('active').prev().addClass('active');
                 // $('.step-label.active').removeClass('active').prev().addClass('active');
 
                 // Disable the previous button on the first step
@@ -785,20 +796,23 @@
             var course_id = '{{ $assign_course->course_id }}';
             var city_id = '{{ $assign_course->city_id }}';
             var id = '{{ $assign_course->id }}';
+            
             getlocation(course_id)
             ///// get location /////
             $(document).on("change", '#course', function(e) {
                 $('#location').empty();
-                $('#location').append('<option value="">Select Location</option>');
                 $('#session').empty();
-                $('#session').hide();
                 $('#no_of_seats').empty();
+                $("#location").show();
+                $('#location').append('<option value="">Select Location</option>');
+                $('#session').hide();
                 $('#no_of_seats').hide();
 
                 var dataId =  $(this).val();
                 getlocation(dataId)
             });
             function getlocation(dataId) {
+                
                 $.ajax({
                     type: 'GET',
                     url: "{{ url('/getlocation') }}" + "/" + dataId,
@@ -807,6 +821,8 @@
                         $('#location').empty();
                         $('#location').append('<option value="">Select Location</option>');
                         $.each(data, function(index, element) {
+                            $("#course-price").text('price:$' + element['course']['price']);
+                            $("#course-price-get").val(element['course']['price']);
                             // $('#location').append('<option  value="' + element['city']['id'] + '">' + element['city']['name'] + '</option>');
                             $("#location").append($('<option></option>').attr("value", element['city']['id']).attr("selected", element['city']['id'] == city_id ? true : false).text(element['city']['name']));
                         });
@@ -866,6 +882,10 @@
 
         ///// No of Seats /////
         $(document).on("change", '#no_of_seats', function(e) {
+            $("#no_of_seats").hide();
+            $("#session").hide();
+            $("#location").hide();
+
             var price = $(".price").text();
             var course_id = $('#course').val();
             var city_id = $('#location').val();
@@ -876,8 +896,6 @@
             var session = $("#session option:selected").text().split('- ');
 
             var students = $(this).val();
-            totalprice = price * students;
-            $('.price').append(totalprice);
 
             // alert(price)
     
@@ -905,6 +923,8 @@
 
             for (let index = 0; index < students; index++) {
                 let no_of_student = index + 1;
+                var course_price = $('#course-price-get').val();
+                var total_sub = no_of_student * course_price
 
                 seats += '' +
                     '<div class="row mt-2 row-data">' +
@@ -933,6 +953,42 @@
 
 
             seats += '' +
+
+
+                    // '<div class="row mt-2 row-data">' +
+                    // '    <div class="col-2 summary-data scourse">$'+ total_sub +'</div>' +
+                    // '    <div class="col-2 summary-data scity" ></div>' +
+                    // '    <div class="col-2 summary-data ssession" ></div>' +
+                    // '    <div class="col-5">' +
+                    // '' +
+                    // '    </div>' +
+                    // '    <div class="col-1 ">' +
+                    // '        <button type="button"' +
+                    // '          id="close-btn"  class="btn btn-dark remove-student-button ng-star-inserted "><i' +
+                    // '                _ngcontent-xph-c158=""' +
+                    // '                class="fa fa-times mr-0"></i></button>' +
+                    // '' +
+                    // '    </div>' +
+                    // '</div>' +
+
+                    '<div _ngcontent-mle-c158="" class="row mt-2 row-data">'+
+                    '<div _ngcontent-mle-c158="" class="online-col"></div>'+
+                    '<div _ngcontent-mle-c158="" class="col pl-0">'+
+                    '    <button _ngcontent-mle-c158="" type="button" class="btn btn-link action-text ng-star-inserted">+ Add extra student</button>'+
+                    '    <!---->'+
+                    '</div>'+
+                    '<div _ngcontent-mle-c158="" class="col text-right m-0">'+
+                    '    <div _ngcontent-mle-c158="" class="d-flex align-items-center w-100 h-100">'+
+                    '    <label _ngcontent-mle-c158="" class="m-0 w-100 text-right price-label">$'+ total_sub +'</label>'+
+                    '    </div>'+
+                    '</div>'+
+                    '</div>';
+                    '';
+
+            
+
+
+            seats += '' +
                 '        </div>' +
                 '' +
                 '    </div>' +
@@ -941,6 +997,10 @@
                 '';
 
             $('#summery-data').append(seats);
+            // setTimeout(function (){
+            //     $('.total_sub').append(total_sub);
+            //     }, 3000
+            // )
 
         });
 
@@ -956,8 +1016,13 @@
             }
        })
 
+
+
        $(document).on('click',"#next-btn" ,function(){
-            //step 1 
+            //step 1
+            $('.md-step.active').removeClass('active').next().addClass('active');
+
+            $(".step1").addClass("blue");
             var course =  $('#course').val()
             var course_text  =  $('#course option:selected').text()
             var location =  $('#location').val()
@@ -976,16 +1041,10 @@
                 semail.push({ name: this.name, value: this.value }); 
             });
 
-            var res = $.map( sname.length > semail.length ? sname : semail, function(v,i) {
-                var chr = sname[i];
-                var num = semail[i];
-                return [chr,num];
-            });
-
-            // console.log(res)
-            // $().each(function(index,value){
-            //     data = $(this).find(".scourse").text()
-            //     alert(data)
+            // var res = $.map( sname.length > semail.length ? sname : semail, function(v,i) {
+            //     var chr = sname[i];
+            //     var num = semail[i];
+            //     return [chr,num];
             // });
 
             $('#ordersummary').empty();
@@ -1041,7 +1100,105 @@
             var semail =  $('.semail').val()
 
             //step 3 
+
+            
        })
+
+       $(document).on('click',".ng-star-inserted" ,function(){
+            var course_id = $('#course').val();
+            var city_id = $('#location').val();
+            var session_id = $('#session').val();
+            var course = $("#course option:selected").text();
+            var city = $("#location option:selected").text();
+            var session = $("#session option:selected").text().split('- ');
+
+             var row = '' +
+                    '<div class="row mt-2 row-data">' +
+                        '    <div class="col-2 summary-data scourse" data-id="' + course_id + '">' + course + ' </div>' +
+                    '    <div class="col-2 summary-data scity" data-id="' + city_id + '">' + city + '</div>' +
+                    '    <div class="col-2 summary-data ssession" data-id="' + session_id + '">' + session[0] + '</div>' +
+                    '    <div class="col-5">' +
+                    '        <div class="row">' +
+                    '            <input type="text"' +
+                    '                class="form-control summary-input col sname" name="sname">' +
+                    '            <input type="text"' +
+                    '                class="form-control summary-input col semail" name="semail">' +
+                    '        </div>' +
+                    '' +
+                    '    </div>' +
+                    '    <div class="col-1 ">' +
+                    '        <button type="button"' +
+                    '          id="close-btn"  class="btn btn-dark remove-student-button ng-star-inserted "><i' +
+                    '                _ngcontent-xph-c158=""' +
+                    '                class="fa fa-times mr-0"></i></button>' +
+                    '' +
+                    '    </div>' +
+                    '</div>' +
+                    '';
+            $(".remove-student-button").parent().parent().closest(".row").last('.row-data').before(row);
+
+        })
+
+       $(document).on("click",'#submit-btn', function (e) {
+
+        $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+        });
+        alert(sname)
+        alert(course)
+        alert(course)
+        alert(location)
+        alert(session)
+        alert(no_of_seats)
+        $.ajax({
+            type: 'POST',
+            url: "{{ url('/booking/store') }}",
+            data: {
+                sname:sname,
+                semail:semail,
+                course:course,
+                location:location,
+                session:session,
+                no_of_seats:no_of_seats,
+                billingEmail:billingEmail,
+                billemail:billemail,
+                billphone:billphone,
+                billfname:billfname,
+                billlname:billlname,
+                billaddline1:billaddline1,
+                billaddline2:billaddline2,
+                billcity:billcity,
+                billstate:billstate,
+                billzipcode:billzipcode,
+                billcname:billcname,
+                billeposition:billeposition,
+                billporder:billporder,
+            },
+            cache: false,
+            contentType: false,
+            processData: false,
+            dataType: 'json',
+            success: (msg) => {
+                if(msg == true){
+                toastr.options =
+                {
+                    "closeButton" : true,
+                    "progressBar" : true
+                }
+                    toastr.success("data created successfully");
+                }else{
+                toastr.options =
+                {
+                    "closeButton" : true,
+                    "progressBar" : true
+                }
+                    toastr.success("something went wrong");
+                }
+            },
+        });
+        });
 
     </script>
 

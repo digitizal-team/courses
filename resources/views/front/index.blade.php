@@ -1,7 +1,8 @@
 @extends('front.layouts.app')
 @section('content')
     <main>
-        <section class="mt-3">
+         <p class="pl-5 pt-5 web-name">Home</p>
+        <section class="mt-3" style="display:none">
             <div class="container-fluid">
                 <div class="row d-flex">
                     <div class="col-md-6">
@@ -35,25 +36,22 @@
                 </div>
             </div>
         </section>
-
-        <section class="intro py-5">
+        <section class="intro py-5" style="display:none">
             <div class="container">
-                <div class="row" style="width: 70%;margin: auto;height: 120px;">
+                <div class="row" style="width: 70%;margin: auto;min-height: 120px;">
                     <div class="col-md-4">
-                        <img class="company-img" src="{{ url('front/assets/images/ab2.png') }}" alt="">
+                        <img class="company-img" src="{{ asset('front/assets/images/ab2.png') }}" alt="">
                     </div>
                     <div class="col-md-4">
-                        <img class="company-img" src="{{ url('front/assets/images/ab3.png') }}" alt="">
+                        <img class="company-img" src="{{ asset('front/assets/images/ab3.png') }}" alt="">
                     </div>
                     <div class="col-md-4">
-                        <img class="company-img" src="{{ url('front/assets/images/ab4.png') }}" alt="">
+                        <img class="company-img" src="{{ asset('front/assets/images/ab4.png') }}" alt="">
                     </div>
                 </div>
             </div>
         </section>
-
-
-        <section>
+        <section style="display:none">
             <div class="container-fluid first-center-div ">
                 <div class="row">
                     <div class="col-lg-3 col-md-4 col-sm-6 ">
@@ -100,32 +98,29 @@
                 </div>
             </div>
         </section>
-        <p class="pl-5 pt-5 web-name">WHY LIFECOACH ?</p>
-        <section>
+        <!--<p class="pl-5 pt-5 web-name">WHY LIFECOACH ?</p>-->
+        <section style="display:none">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-lg-3 mt-2 mb-5">
-                        <img class="company-img-2" src="{{ url('front/assets/images/one.png') }}" alt="">
+                        <img class="company-img-2" src="{{ asset('front/assets/images/one.png') }}" alt="">
                     </div>
                     <div class="col-md-6 col-lg-3 mt-2 mb-5">
-                        <img class="company-img-2" src="{{ url('front/assets/images/two.png') }}" alt="">
+                        <img class="company-img-2" src="{{ asset('front/assets/images/two.png') }}" alt="">
                     </div>
                     <div class="col-md-6 col-lg-3 mt-2 mb-5">
-                        <img class="company-img-2" src="{{ url('front/assets/images/three.png') }}" alt="">
+                        <img class="company-img-2" src="{{ asset('front/assets/images/three.png') }}" alt="">
                     </div>
                     <div class="col-md-6 col-lg-3 mt-2 mb-5">
-                        <img class="company-img-2" src="{{ url('front/assets/images/four.png') }}" alt="">
+                        <img class="company-img-2" src="{{ asset('front/assets/images/four.png') }}" alt="">
                     </div>
                     <div class="col-md-6 col-lg-3 mt-2 mb-5">
-                        <img class="company-img-2" src="{{ url('front/assets/images/five.png') }}" alt="">
+                        <img class="company-img-2" src="{{ asset('front/assets/images/five.png') }}" alt="">
                     </div>
                 </div>
             </div>
         </section>
-
-
-
-        <section class="ftco-section testimony-section bg-secondary">
+        <section class="ftco-section testimony-section bg-secondary" style="display:none">
             <div class="container">
                 <div class="row justify-content-center pb-5 mb-3">
                     <div class="col-md-7 heading-section heading-section-white text-center ftco-animate">
@@ -236,8 +231,7 @@
                 </div>
             </div>
         </section>
-
-        <section class="ftco-section">
+        <section class="ftco-section" style="display:none">
             <div class="container">
                 <div class="row justify-content-center pb-5 mb-3">
                     <div class="col-md-7 heading-section text-center ftco-animate">
@@ -300,9 +294,7 @@
                 </div>
             </div>
         </section>
-
-
-        <section class="ftco-section ftco-no-pb ftco-no-pt">
+        <section class="ftco-section ftco-no-pb ftco-no-pt" style="display:none">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -326,8 +318,7 @@
                 </div>
             </div>
         </section>
-
-        <section class="ftco-section bg-light">
+        <section class="ftco-section bg-light" style="display:none">
             <div class="container">
                 <div class="row justify-content-center pb-5 mb-3">
                     <div class="col-md-7 heading-section text-center ftco-animate">
@@ -420,7 +411,7 @@
                         @if ($item->course !== null)
                         <div class="col-lg-2 course-col">
                             <div class="course-img-text">
-                                <img class="course-img" src="{{ url('front/assets/images/powerbi.png') }}"
+                                <img class="course-img" src="{{ asset('front/assets/images/powerbi.png') }}"
                                     alt="">
                                 <p class="pb-3 mb-0 small lh-sm border-bottom">
                                     <a href="{{ route('course.details', $item->id) }}"><strong
@@ -433,8 +424,6 @@
                     </div>
                 </div>
             </div>
-
-
         </section>
 
     </main>

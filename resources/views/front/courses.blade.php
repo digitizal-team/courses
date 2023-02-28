@@ -27,8 +27,31 @@
             color: white;
         }
     </style>
-    <main>
-        <section class="mt-3 mb-3">
+    <main> 
+        <section>
+            <div class="course">
+                <p class="course-p">Our Courses</p>
+                <div class="course-child">
+                    <div class="row course-row">
+                        @foreach ($categories as $item)
+                        @if ($item->course !== null)
+                        <div class="col-lg-2 course-col">
+                            <div class="course-img-text">
+                                <img class="course-img" src="{{ asset('front/assets/images/powerbi.png') }}"
+                                    alt="">
+                                <p class="pb-3 mb-0 small lh-sm border-bottom">
+                                    <a href="{{ route('course.details', $item->id) }}"><strong
+                                            class="d-block text-gray-dark text-white">{{ $item->name }}</strong></a>
+                                </p>
+                            </div>
+                        </div>
+                        @endif
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="mt-3 mb-3" style="display:none">
             <div class="container-fluid">
                 <div class="row d-flex">
                     <div class="col-md-6">
@@ -66,51 +89,51 @@
             </div>
         </section>
         <section>
-            <section>
+            <section style="display:none">
                 <div class="course">
                     <p class="course-p">Our Courses</p>
                     <div class="course-child">
                         <div class="row course-row">
                             <div class="col-lg-6 course-col">
                                 <div class="course-img-text">
-                                    <img class="course-img" src="{{ url('front/assets/images/powerbi.png') }}"
+                                    <img class="course-img" src="{{ asset('front/assets/images/powerbi.png') }}"
                                         alt="">
                                     <p class="course-text">Power BI</p>
                                 </div>
                                 <div class="course-img-text">
-                                    <img class="course-img" src="{{ url('front/assets/images/powerbi.png') }}"
+                                    <img class="course-img" src="{{ asset('front/assets/images/powerbi.png') }}"
                                         alt="">
                                     <p class="course-text">Power BI</p>
                                 </div>
                                 <div class="course-img-text">
-                                    <img class="course-img" src="{{ url('front/assets/images/powerbi.png') }}"
+                                    <img class="course-img" src="{{ asset('front/assets/images/powerbi.png') }}"
                                         alt="">
                                     <p class="course-text">Power BI</p>
                                 </div>
                                 <div class="course-img-text">
-                                    <img class="course-img" src="{{ url('front/assets/images/powerbi.png') }}"
+                                    <img class="course-img" src="{{ asset('front/assets/images/powerbi.png') }}"
                                         alt="">
                                     <p class="course-text">Power BI</p>
                                 </div>
                             </div>
                             <div class="col-lg-6 course-col">
                                 <div class="course-img-text">
-                                    <img class="course-img" src="{{ url('front/assets/images/powerbi.png') }}"
+                                    <img class="course-img" src="{{ asset('front/assets/images/powerbi.png') }}"
                                         alt="">
                                     <p class="course-text">Power BI</p>
                                 </div>
                                 <div class="course-img-text">
-                                    <img class="course-img" src="{{ url('front/assets/images/powerbi.png') }}"
+                                    <img class="course-img" src="{{ asset('front/assets/images/powerbi.png') }}"
                                         alt="">
                                     <p class="course-text">Power BI</p>
                                 </div>
                                 <div class="course-img-text">
-                                    <img class="course-img" src="{{ url('front/assets/images/powerbi.png') }}"
+                                    <img class="course-img" src="{{ asset('front/assets/images/powerbi.png') }}"
                                         alt="">
                                     <p class="course-text">Power BI</p>
                                 </div>
                                 <div class="course-img-text">
-                                    <img class="course-img" src="{{ url('front/assets/images/powerbi.png') }}"
+                                    <img class="course-img" src="{{ asset('front/assets/images/powerbi.png') }}"
                                         alt="">
                                     <p class="course-text">Power BI</p>
                                 </div>
@@ -118,44 +141,44 @@
 
                             <div class="col-lg-6 course-col">
                                 <div class="course-img-text">
-                                    <img class="course-img" src="{{ url('front/assets/images/powerbi.png') }}"
+                                    <img class="course-img" src="{{ asset('front/assets/images/powerbi.png') }}"
                                         alt="">
                                     <p class="course-text">Power BI</p>
                                 </div>
                                 <div class="course-img-text">
-                                    <img class="course-img" src="{{ url('front/assets/images/powerbi.png') }}"
+                                    <img class="course-img" src="{{ asset('front/assets/images/powerbi.png') }}"
                                         alt="">
                                     <p class="course-text">Power BI</p>
                                 </div>
                                 <div class="course-img-text">
-                                    <img class="course-img" src="{{ url('front/assets/images/powerbi.png') }}"
+                                    <img class="course-img" src="{{ asset('front/assets/images/powerbi.png') }}"
                                         alt="">
                                     <p class="course-text">Power BI</p>
                                 </div>
                                 <div class="course-img-text">
-                                    <img class="course-img" src="{{ url('front/assets/images/powerbi.png') }}"
+                                    <img class="course-img" src="{{ asset('front/assets/images/powerbi.png') }}"
                                         alt="">
                                     <p class="course-text">Power BI</p>
                                 </div>
                             </div>
                             <div class="col-lg-6 course-col">
                                 <div class="course-img-text">
-                                    <img class="course-img" src="{{ url('front/assets/images/powerbi.png') }}"
+                                    <img class="course-img" src="{{ asset('front/assets/images/powerbi.png') }}"
                                         alt="">
                                     <p class="course-text">Power BI</p>
                                 </div>
                                 <div class="course-img-text">
-                                    <img class="course-img" src="{{ url('front/assets/images/powerbi.png') }}"
+                                    <img class="course-img" src="{{ asset('front/assets/images/powerbi.png') }}"
                                         alt="">
                                     <p class="course-text">Power BI</p>
                                 </div>
                                 <div class="course-img-text">
-                                    <img class="course-img" src="{{ url('front/assets/images/powerbi.png') }}"
+                                    <img class="course-img" src="{{ asset('front/assets/images/powerbi.png') }}"
                                         alt="">
                                     <p class="course-text">Power BI</p>
                                 </div>
                                 <div class="course-img-text">
-                                    <img class="course-img" src="{{ url('front/assets/images/powerbi.png') }}"
+                                    <img class="course-img" src="{{ asset('front/assets/images/powerbi.png') }}"
                                         alt="">
                                     <p class="course-text">Power BI</p>
                                 </div>
@@ -173,8 +196,8 @@
                 <div class="col-6">
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         @foreach ($courses as $key => $item)
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link {{ $key == 0 ? 'active' : '' }}" id="courseId"
+                            <li class="nav-item {{ $key == 0 ? 'active' : '' }}" role="presentation">
+                                <button class="nav-link {{ $key == 0 ? 'active' : '' }}" onclick="courseId({{ $item->id }})"
                                     data-bs-toggle="tab" data-id="{{ $item->id }}"
                                     data-bs-target="#home{{ $item->id }}" type="button" role="tab"
                                     aria-controls="home" aria-selected="true">{{ $item->levelcourse->name }}</button>
@@ -182,8 +205,8 @@
                         @endforeach
                     </ul>
                     <div class="tab-content" id="myTabContent">
-                        @foreach ($courses as $course)
-                            <div class="tab-pane fade show" id="home{{ $course->id }}" role="tabpanel">
+                        @foreach ($courses as $key => $course)
+                            <div class="tab-pane fade show {{ $key == 0 ? 'active' : '' }}" id="home{{ $course->id }}" role="tabpanel">
                                 <table class="table">
                                     <thead>
                                         <tr>
@@ -205,10 +228,11 @@
                                                 <td scope="row">{{ $item->date }}</td>
                                                 <td scope="row">{{ $item->course->category->name }}
                                                     {{ $item->course->levelcourse->name }}</td>
+                                                <td scope="row">{{ $item->city->name }}</td>
                                                 <td scope="row">{{ $item->course->status }}</td>
-                                                <td scope="row"><button type="button"
-                                                        class="btn btn-dark btn-sm">Book
-                                                        Now</button></td>
+                                                <td scope="row">
+                                                  <a href="{{ url('/booking',$item->session_id) }}" class="view-course"><span class="courses">Book Now</span></a>
+                                                </td>
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -229,14 +253,13 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="col-lg-3 col-md-6 col-sm-12">
                     <div class="macro-course-structure course-blue-box large">
 
                         <div class="title accordion">
                             <h2>
-                                <span class="mobiletittle"> Power BI</span>
-                                Course Outlines
+                                <span class="mobiletittle text-white"> {{$assign_courses[0]->course->category->name}} Course Outlines</span>
+
                             </h2>
                         </div>
 
@@ -245,7 +268,7 @@
 
                                 <style>
                                     .icon-19::after {
-                                        background-image: {{ url('front/assets/images/powerbi.png') }};
+                                        background-image:url('{{ asset("front/assets/images/powerbi.png") }}');                                 
                                     }
                                 </style>
                                 @foreach ($courselevel as $level)
@@ -272,9 +295,9 @@
                                         </div>
                                     </li>
                                     <style>
-                                        .icon-18::after {
-                                            background-image: url("/media/krtl3owd/power-bi_128x128.png");
-                                        }
+                                      .icon-18::after {
+                                        background-image:url('{{ asset("front/assets/images/powerbi.png") }}');                                 
+                                    }
                                     </style>
                                 @endforeach
 
@@ -294,14 +317,14 @@
                         <div class="card-header">
                             Other Courses
                         </div>
-                        <img class="other-course-img" src="{{ url('front/assets/images/powerbi.png') }}" alt="">
-                        <img class="other-course-img" src="{{ url('front/assets/images/powerbi.png') }}" alt="">
-                        <img class="other-course-img" src="{{ url('front/assets/images/powerbi.png') }}" alt="">
-                        <img class="other-course-img" src="{{ url('front/assets/images/powerbi.png') }}" alt="">
-                        <img class="other-course-img" src="{{ url('front/assets/images/powerbi.png') }}" alt="">
-                        <img class="other-course-img" src="{{ url('front/assets/images/powerbi.png') }}" alt="">
-                        <img class="other-course-img" src="{{ url('front/assets/images/powerbi.png') }}" alt="">
-                        <img class="other-course-img" src="{{ url('front/assets/images/powerbi.png') }}" alt="">
+                        <img class="other-course-img" src="{{ asset('front/assets/images/powerbi.png') }}" alt="">
+                        <img class="other-course-img" src="{{ asset('front/assets/images/powerbi.png') }}" alt="">
+                        <img class="other-course-img" src="{{ asset('front/assets/images/powerbi.png') }}" alt="">
+                        <img class="other-course-img" src="{{ asset('front/assets/images/powerbi.png') }}" alt="">
+                        <img class="other-course-img" src="{{ asset('front/assets/images/powerbi.png') }}" alt="">
+                        <img class="other-course-img" src="{{ asset('front/assets/images/powerbi.png') }}" alt="">
+                        <img class="other-course-img" src="{{ asset('front/assets/images/powerbi.png') }}" alt="">
+                        <img class="other-course-img" src="{{ asset('front/assets/images/powerbi.png') }}" alt="">
 
                     </div>
                 </div>
@@ -324,57 +347,58 @@
 
         </section>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-        <script>
-                $(document).on("click", '#courseId', function(e) {
-                    var dataId = $(this).attr("data-id");
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+           <script>
+          courseId({{ $courses[0]->id }});
 
-                    $.ajaxSetup({
-                        headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        }
-                    });
+          function courseId(dataId){
 
-                    $.ajax({
-                        type: 'GET',
-                        url: "{{ url('/getCourseData') }}" + "/" + dataId,
-                        data: null,
-                        cache: false,
-                        contentType: false,
-                        processData: false,
-                        dataType: 'json',
-                        success: (data) => {
-                            $('#myHtmlCode').empty();
-                            $('#myHtmlCode').append(myHtmlCode);
-                            var myHtmlCode =
-                                '<div class="col-6">' +
-                                '<p>Price</p>' +
-                                '<p>Duration</p>' +
-                                '<p>Time</p>' +
-                                '<p>Class Size (max)</p>' +
-                                '<p>Class Size (avg)</p>' +
-                                '<p>Reference Materials</p>' +
-                                '<p>Training Computer</p>' +
-                                '<p>CPD Hours</p>' +
-                                '<p>Delivery</p>' +
-                                '</div>' +
-                                '<div class="col-6" id="myHtmlCode">' +
-                                '<p>' + data.data.price + '</p>' +
-                                '<p>' + data.data.duration + '</p>' +
-                                '<p>' + data.data.time + '</p>' +
-                                '<p>' + data.data.class_size_max + '</p>' +
-                                '<p>' + data.data.class_size_min + '</p>' +
-                                '<p>' + data.data.reference_material + '</p>' +
-                                '<p>' + data.data.training_computer + '</p>' +
-                                '<p>' + data.data.CPD_hour + '</p>' +
-                                '<p>' + data.data.delivery + '</p>'
-                            '</div>';
-                            console.log(data.data.price)
-                            $('#myHtmlCode').append(myHtmlCode);
-                        },
-                    });
-                });
-            
+              $.ajaxSetup({
+                  headers: {
+                      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                  }
+              });
+
+              $.ajax({
+                  type: 'GET',
+                  url: "{{ url('/getCourseData') }}" + "/" + dataId,
+                  data: null,
+                  cache: false,
+                  contentType: false,
+                  processData: false,
+                  dataType: 'json',
+                  success: (data) => {
+                    console.log(data)
+                      $('#myHtmlCode').empty();
+                      $('#myHtmlCode').append(myHtmlCode);
+                      var myHtmlCode =
+                          '<div class="col-6">' +
+                          '<p>Price</p>' +
+                          '<p>Duration</p>' +
+                          '<p>Time</p>' +
+                          '<p>Class Size (max)</p>' +
+                          '<p>Class Size (avg)</p>' +
+                          '<p>Reference Materials</p>' +
+                          '<p>Training Computer</p>' +
+                          '<p>CPD Hours</p>' +
+                          '<p>Delivery</p>' +
+                          '</div>' +
+                          '<div class="col-6" id="myHtmlCode">' +
+                          '<p>' + data.data.price + '</p>' +
+                          '<p>' + data.data.duration + '</p>' +
+                          '<p>' + data.data.time + '</p>' +
+                          '<p>' + data.data.class_size_max + '</p>' +
+                          '<p>' + data.data.class_size_min + '</p>' +
+                          '<p>' + data.data.reference_material + '</p>' +
+                          '<p>' + data.data.training_computer + '</p>' +
+                          '<p>' + data.data.CPD_hour + '</p>' +
+                          '<p>' + data.data.delivery + '</p>'
+                      '</div>';
+                      console.log(data.data.price)
+                      $('#myHtmlCode').append(myHtmlCode);
+                  },
+              });
+          }
         </script>
     </main>
 @endsection

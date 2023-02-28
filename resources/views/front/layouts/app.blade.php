@@ -88,12 +88,9 @@
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav m-auto">
 	        	<li class="nav-item active"><a href="{{ url('/') }}" class="nav-link">Home</a></li>
-	        	<li class="nav-item"><a href="{{ url('about') }}" class="nav-link">About</a></li>
-	        	<li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
-	          <li class="nav-item"><a href="success-stories.html" class="nav-link">Stories</a></li>
-	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-	          <li class="nav-item"><a href="{{ url('contact') }}"" class="nav-link">Contact</a></li>
-	          <li class="nav-item"><a href="{{ url('courses') }}"" class="nav-link">Courses</a></li>
+	        	<li class="nav-item"><a href="{{ url('/about') }}" class="nav-link">About</a></li>
+	          <li class="nav-item"><a href="{{ url('/contact') }}"" class="nav-link">Contact</a></li>
+	          <li class="nav-item"><a href="{{ url('/courses') }}"" class="nav-link">Courses</a></li>
 	        </ul>
 	      </div>
 	    </div>

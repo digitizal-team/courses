@@ -21,7 +21,9 @@
     .nav-link .active{
         color: white;
     }
+
 </style>
+
 <section class="mt-3 mb-3">
     <div class="container-fluid">
         <div class="row d-flex">
@@ -75,14 +77,14 @@
               <ul class="nav nav-tabs" id="myTab" role="tablist">
                 @foreach($coursebycities as $key => $item)
                 <li class="nav-item" role="presentation">
-                  <button class="scrollmenu nav-link {{ $key == 0 ? 'active' : '' }}" id="cityId"  data-bs-toggle="tab" data-id="{{ $item->city_id }}" data-bs-target="#home{{ $item->id }}" type="button" role="tab" aria-controls="home" aria-selected="true">{{ $item->city_name }}</button>
+                  <a class="scrollmenu nav-link {{ $key == 0 ? 'active' : '' }}" id="cityId" onclick="cityId({{ $item->city_id }})"  data-bs-toggle="tab" data-id="{{ $item->city_id }}" data-bs-target="#home{{ $item->id }}" type="button" role="tab" aria-controls="home" aria-selected="true">{{ $item->city_name }}</a>
                 </li>
                 @endforeach
               </ul>
 
               <div class="tab-content" id="myTabContent">
                 @foreach($coursebycities as $key => $item)
-                  <div class="tab-pane fade show" id="home{{ $item->id }}" role="tabpanel" >
+                  <div class="tab-pane fade show {{ $key == 0 ? 'active' : '' }}" id="home{{ $item->id }}" role="tabpanel" >
                     <table class="table">
                       <thead>
                         <tr>
@@ -109,7 +111,9 @@
                           <td scope="row">{{ $item->category_name }} </td>
                           <td scope="row">{{ $item->city_name }}</td>
                           <td scope="row">{{ $item->status }}</td>
-                          <td scope="row"><button type="button" class="btn btn-dark btn-sm">Book Now</button></td>
+                          <td scope="row">
+                            <a href="{{ url('/booking',$item->session_id) }}" class="view-course"><span class="courses">Book Now</span></a>
+                          </td>
                         </tr>
                         @endforeach
                       </tbody>
@@ -228,10 +232,9 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
         <script>
            
-          
-            $(document).on('click', '#cityId' ,function(){
-                var dataId = $(this).attr("data-id");
-              
+           cityId({{ $coursebycities[0]->city_id }});
+           
+           function cityId(dataId){
                 $.ajaxSetup({
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -276,7 +279,8 @@
                         $('#myHtmlCode').append(myHtmlCode);
                     },
                 })
-            })
+
+        }
           
           
         </script>

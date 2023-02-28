@@ -1,8 +1,9 @@
 @extends('front.layouts.app')
 @section('content')
     <main>
+               <p class="pl-5 pt-5 web-name">CONTACT US</p>
         <section>
-            <div class="contact">
+            <div class="contact pb-4">
                 <p style="font-size: 36px;color: #0064F0">Contact Us
                 </p>
                 <p style="font-weight: bold;font-size: 22px">We'd love to hear from you...
@@ -52,24 +53,24 @@
             </div>
 
         </section>
-        <p class="pl-5 pt-5 web-name">WHY LIFECOACH ?</p>
+ 
         <section>
-            <div class="container">
+            <div class="container" style="display:none">
                 <div class="row">
                     <div class="col-md-6 col-lg-3 mt-2 mb-5">
-                        <img class="company-img-2" src="{{ url('front/assets/images/one.png') }}" alt="">
+                        <img class="company-img-2" src="{{ asset('front/assets/images/one.png') }}" alt="">
                     </div>
                     <div class="col-md-6 col-lg-3 mt-2 mb-5">
-                        <img class="company-img-2" src="{{ url('front/assets/images/two.png') }}" alt="">
+                        <img class="company-img-2" src="{{ asset('front/assets/images/two.png') }}" alt="">
                     </div>
                     <div class="col-md-6 col-lg-3 mt-2 mb-5">
-                        <img class="company-img-2" src="{{ url('front/assets/images/three.png') }}" alt="">
+                        <img class="company-img-2" src="{{ asset('front/assets/images/three.png') }}" alt="">
                     </div>
                     <div class="col-md-6 col-lg-3 mt-2 mb-5">
-                        <img class="company-img-2" src="{{ url('front/assets/images/four.png') }}" alt="">
+                        <img class="company-img-2" src="{{ asset('front/assets/images/four.png') }}" alt="">
                     </div>
                     <div class="col-md-6 col-lg-3 mt-2 mb-5">
-                        <img class="company-img-2" src="{{ url('front/assets/images/five.png') }}" alt="">
+                        <img class="company-img-2" src="{{ asset('front/assets/images/five.png') }}" alt="">
                     </div>
                 </div>
             </div>

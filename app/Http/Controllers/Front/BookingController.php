@@ -15,7 +15,6 @@ class BookingController extends Controller
     
     public function index($id = "")
     {
-
         $assign_course = AssignCourse::where('session_id',$id)->first();
         $courses = Course::with('assigncourse')->get();
         return view('front/booking/index', compact('courses','assign_course'));
@@ -24,7 +23,7 @@ class BookingController extends Controller
 
     public function getlocation($id)
     {
-        $location = AssignCourse::where('course_id',$id)->with('city')->get()->unique('city_id');
+        $location = AssignCourse::where('course_id',$id)->with('city')->with('course')->get()->unique('city_id');
         return response()->json($location);
     }
 
@@ -38,6 +37,11 @@ class BookingController extends Controller
     {
         $no_of_seats = AssignCourse::where('id',$id)->value('no_of_seats');
         return response()->json($no_of_seats);
+    }
+
+    public function booking_store(Request $request)
+    {
+        dd($request);
     }
 
 
