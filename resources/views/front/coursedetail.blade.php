@@ -28,7 +28,7 @@
         }
     </style>
     <main class="container-fluid">
-        <section class="mt-3 mb-3" style="display:none">
+        <section class="mt-3 mb-3"  >
             <div class="container-fluid">
                 <div class="row d-flex">
                     <div class="col-md-6">

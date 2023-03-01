@@ -375,7 +375,7 @@
                                                 </div>
 
                                                 <div class="col-sm-3 option-container">
-                                                    <select name="" id="location" class="form-select form-select-sm"
+                                                    <select name="location" id="location" class="form-select form-select-sm"
                                                         aria-label=".form-select-sm example">
                                                     </select>
                                                 </div>
@@ -469,15 +469,11 @@
                                             <!---->
                                             <!---->
                                             {{-- <div class="total_sub"></div> --}}
+                                            <div role="alert" class="mb-0 mt-4 float-right total-price"></div>
+                                            </div>
                                             <div role="alert" class="alert alert-info mb-0 mt-4"> No
                                                 courses have been added to the booking. Please select a course above. </div>
-                                            <!---->
-                                            <!---->
-                                            <!---->
-                                            <!---->
-                                            <!---->
-                                            <!---->
-                                        </div>
+                                            </div>
                                     </div>
 
 
@@ -799,7 +795,7 @@
             
             getlocation(course_id)
             ///// get location /////
-            $(document).on("change", '#course', function(e) {
+            $(document).on("click", '#course', function(e) {
                 $('#location').empty();
                 $('#session').empty();
                 $('#no_of_seats').empty();
@@ -831,7 +827,7 @@
             }
             ///// get session /////
             getdate(city_id,course_id)
-            $(document).on("change", '#location', function(e) {
+            $(document).on("click", '#location', function(e) {
                 $('#session').show();
                 $('#session').append('<option value="">Select session</option>');
                 var city_id =  $(this).val();
@@ -856,7 +852,7 @@
 
         ///// No of Seats /////
         getdseats(id)
-        $(document).on("change", '#session', function(e) {
+        $(document).on("click", '#session', function(e) {
             $('#no_of_seats').show();
             $('#no_of_seats').empty();
             $('#no_of_seats').append('<option value="">Select Seats</option>');
@@ -885,16 +881,13 @@
             $("#no_of_seats").hide();
             $("#session").hide();
             $("#location").hide();
-
             var price = $(".price").text();
             var course_id = $('#course').val();
             var city_id = $('#location').val();
             var session_id = $('#session').val();
-
             var course = $("#course option:selected").text();
             var city = $("#location option:selected").text();
             var session = $("#session option:selected").text().split('- ');
-
             var students = $(this).val();
 
             // alert(price)
@@ -926,6 +919,8 @@
                 var course_price = $('#course-price-get').val();
                 var total_sub = no_of_student * course_price
 
+
+
                 seats += '' +
                     '<div class="row mt-2 row-data">' +
                     '    <div class="col-2 summary-data scourse" data-id="' + course_id + '">' + course + ' </div>' +
@@ -942,8 +937,8 @@
                     '    </div>' +
                     '    <div class="col-1 ">' +
                     '        <button type="button"' +
-                    '          id="close-btn"  class="btn btn-dark remove-student-button ng-star-inserted "><i' +
-                    '                _ngcontent-xph-c158=""' +
+                    '          id="close-btn"  class="btn btn-dark remove-student-button "><i' +
+                    '                ' +
                     '                class="fa fa-times mr-0"></i></button>' +
                     '' +
                     '    </div>' +
@@ -964,26 +959,28 @@
                     // '    </div>' +
                     // '    <div class="col-1 ">' +
                     // '        <button type="button"' +
-                    // '          id="close-btn"  class="btn btn-dark remove-student-button ng-star-inserted "><i' +
-                    // '                _ngcontent-xph-c158=""' +
+                    // '          id="close-btn"  class="btn btn-dark remove-student-button  "><i' +
+                    // '                ' +
                     // '                class="fa fa-times mr-0"></i></button>' +
                     // '' +
                     // '    </div>' +
                     // '</div>' +
 
-                    '<div _ngcontent-mle-c158="" class="row mt-2 row-data">'+
-                    '<div _ngcontent-mle-c158="" class="online-col"></div>'+
-                    '<div _ngcontent-mle-c158="" class="col pl-0">'+
-                    '    <button _ngcontent-mle-c158="" type="button" class="btn btn-link action-text ng-star-inserted">+ Add extra student</button>'+
+                    '<div  class="row mt-2 row-data">'+
+                    '<div  class="online-col"></div>'+
+                    '<div  class="col pl-0">'+
+                    '    <button  type="button" class="btn btn-link action-text  add-row">+ Add extra student</button>'+
                     '    <!---->'+
                     '</div>'+
-                    '<div _ngcontent-mle-c158="" class="col text-right m-0">'+
-                    '    <div _ngcontent-mle-c158="" class="d-flex align-items-center w-100 h-100">'+
-                    '    <label _ngcontent-mle-c158="" class="m-0 w-100 text-right price-label">$'+ total_sub +'</label>'+
+                    '<div  class="col text-right m-0">'+
+                    '    <div  class="d-flex align-items-center w-100 h-100">'+
+                    '    <label  class="m-0 w-100 text-right price-label total-sub">$'+ total_sub +'</label>'+
                     '    </div>'+
                     '</div>'+
                     '</div>';
                     '';
+
+
 
             
 
@@ -991,17 +988,22 @@
             seats += '' +
                 '        </div>' +
                 '' +
+                
                 '    </div>' +
                 '' +
                 '</div>' +
                 '';
 
-            $('#summery-data').append(seats);
-            // setTimeout(function (){
-            //     $('.total_sub').append(total_sub);
-            //     }, 3000
-            // )
 
+            $('#summery-data').append(seats);
+
+            var amountInt = 0
+            $(".total-sub").each(function( index ) {
+                var amount_text =  $( this ).text();
+                var amount = amount_text.replace('$', '');
+                amountInt += parseInt(amount)
+                $('.total-price').text('$'+amountInt);
+            });
         });
 
 
@@ -1015,6 +1017,41 @@
                 $(this).closest(".row").remove();
             }
        })
+
+       $(document).on('click',".add-row" ,function(){
+            var course_id = $('#course').val();
+            var city_id = $('#location').val();
+            var session_id = $('#session').val();
+            var course = $("#course option:selected").text();
+            var city = $("#location option:selected").text();
+            var session = $("#session option:selected").text().split('- ');
+
+             var row = '' +
+                    '<div class="row mt-2 row-data">' +
+                        '    <div class="col-2 summary-data scourse" data-id="' + course_id + '">' + course + ' </div>' +
+                    '    <div class="col-2 summary-data scity" data-id="' + city_id + '">' + city + '</div>' +
+                    '    <div class="col-2 summary-data ssession" data-id="' + session_id + '">' + session[0] + '</div>' +
+                    '    <div class="col-5">' +
+                    '        <div class="row">' +
+                    '            <input type="text"' +
+                    '                class="form-control summary-input col sname" name="sname">' +
+                    '            <input type="text"' +
+                    '                class="form-control summary-input col semail" name="semail">' +
+                    '        </div>' +
+                    '' +
+                    '    </div>' +
+                    '    <div class="col-1 ">' +
+                    '        <button type="button"' +
+                    '          id="close-btn"  class="btn btn-dark remove-student-button  "><i' +
+                    '                ' +
+                    '                class="fa fa-times mr-0"></i></button>' +
+                    '' +
+                    '    </div>' +
+                    '</div>' +
+                    '';
+            $(".remove-student-button").parent().parent().closest(".row").last('.row-data').before(row);
+
+        })
 
 
 
@@ -1104,65 +1141,139 @@
             
        })
 
-       $(document).on('click',".ng-star-inserted" ,function(){
-            var course_id = $('#course').val();
-            var city_id = $('#location').val();
-            var session_id = $('#session').val();
-            var course = $("#course option:selected").text();
-            var city = $("#location option:selected").text();
-            var session = $("#session option:selected").text().split('- ');
 
-             var row = '' +
-                    '<div class="row mt-2 row-data">' +
-                        '    <div class="col-2 summary-data scourse" data-id="' + course_id + '">' + course + ' </div>' +
-                    '    <div class="col-2 summary-data scity" data-id="' + city_id + '">' + city + '</div>' +
-                    '    <div class="col-2 summary-data ssession" data-id="' + session_id + '">' + session[0] + '</div>' +
-                    '    <div class="col-5">' +
-                    '        <div class="row">' +
-                    '            <input type="text"' +
-                    '                class="form-control summary-input col sname" name="sname">' +
-                    '            <input type="text"' +
-                    '                class="form-control summary-input col semail" name="semail">' +
-                    '        </div>' +
-                    '' +
-                    '    </div>' +
-                    '    <div class="col-1 ">' +
-                    '        <button type="button"' +
-                    '          id="close-btn"  class="btn btn-dark remove-student-button ng-star-inserted "><i' +
-                    '                _ngcontent-xph-c158=""' +
-                    '                class="fa fa-times mr-0"></i></button>' +
-                    '' +
-                    '    </div>' +
-                    '</div>' +
-                    '';
-            $(".remove-student-button").parent().parent().closest(".row").last('.row-data').before(row);
-
-        })
 
        $(document).on("click",'#submit-btn', function (e) {
+        e.preventDefault();
+
+        var price = 0
+        var amount_text =  $(".total-price").text();
+        var amount = amount_text.replace('$', '');
+        price += parseInt(amount)
+        alert(price)
+        
+        sname = []
+        semail = []
+
+        $(".row-data").each(function(index,value){
+                var name =
+                    $(this).find(".sname").val()
+                sname.push(name);
+
+        });
+
+        $(".row-data").each(function(index,value){
+                var email =
+                    $(this).find(".semail").val()
+                semail.push(email);
+
+        });
+
+        var course_id = $(".scourse").map(function() {
+            return $(this).data("id");
+        }).get();
+        // course_id = jQuery.unique( course );
+
+        var city_id = $(".scity").map(function() {
+            return $(this).data("id");
+        }).get();
+        // city_id = jQuery.unique( city );
+
+        var session_id = $(".ssession").map(function() {
+            return $(this).data("id");
+        }).get();
+        // session_id = jQuery.unique( session );
+
+        // bill contact
+        var billemail =  $('#billemail').val();
+        var billphone =  $('#billphone').val();
+        var billfname =  $('#billfname').val();
+        var billlname =  $('#billlname').val();
+        // company optional
+        var billcname =  $('#billcname').val();
+        var billeposition =  $('#billeposition').val();
+        var billporder =  $('#billporder').val()
+        // bill address
+        var billaddline1 =  $('#billaddline1').val();
+        var billaddline2 =  $('#billaddline2').val();
+        var billcity =  $('#billcity').val();
+        var billstate =  $('#billstate').val();
+        var billzipcode =  $('#billzipcode').val();
+        // company optional
+        var billcname =  $('#billcname').val();
+        var billeposition =  $('#billeposition').val();
+        var billporder =  $('#billporder').val()
+
+        // alert(sname )
+        // console.log(sname)
+        // alert(semail )
+        // console.log(semail)
+
+        // alert(course_id )
+        // console.log(course_id)
+        // alert(city_id)
+        // console.log(city_id)
+        // alert(session_id)
+        // console.log(session_id)
+
+
+
+        // alert(billemail)
+        // console.log(billemail+"billemail")
+        // alert(billphone)
+        // console.log(billphone+"billphone")
+        // alert(billfname)
+        // console.log(billfname+"billfname")
+        // alert(billlname)
+        // console.log(billlname+"billlname")
+        // alert(billcname)
+        // console.log(billcname+"billcname")
+        // alert(billeposition)
+        // console.log(billeposition+"billeposition")
+        // alert(billporder)
+        // console.log(billporder+"billporder")
+
+        // alert(billaddline1)
+        // console.log(billaddline1+"billaddline1")
+        // alert(billaddline2)
+        // console.log(billaddline2+"billaddline2")
+        // alert(billcity)
+        // console.log(billcity+"billcity")
+        // alert(billstate)
+        // console.log(billstate+"billstate")
+        // alert(billzipcode)
+        // console.log(billzipcode+"billzipcode")
+
+        // alert(billcname)
+        // console.log(billcname+"billcname")
+        // alert(billeposition)
+        // console.log(billeposition+"billeposition")
+        // alert(billporder)
+        // console.log(billporder+"billporder")
+
+
+
+
+
+
+
+
 
         $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
         });
-        alert(sname)
-        alert(course)
-        alert(course)
-        alert(location)
-        alert(session)
-        alert(no_of_seats)
         $.ajax({
             type: 'POST',
             url: "{{ url('/booking/store') }}",
             data: {
+                price:price,
                 sname:sname,
                 semail:semail,
-                course:course,
-                location:location,
-                session:session,
-                no_of_seats:no_of_seats,
-                billingEmail:billingEmail,
+                course_id:course_id,
+                city_id:city_id,
+                session_id:session_id,
                 billemail:billemail,
                 billphone:billphone,
                 billfname:billfname,
@@ -1176,9 +1287,6 @@
                 billeposition:billeposition,
                 billporder:billporder,
             },
-            cache: false,
-            contentType: false,
-            processData: false,
             dataType: 'json',
             success: (msg) => {
                 if(msg == true){

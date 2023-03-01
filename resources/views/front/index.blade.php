@@ -2,7 +2,7 @@
 @section('content')
     <main>
          <p class="pl-5 pt-5 web-name">Home</p>
-        <section class="mt-3" style="display:none">
+        <section class="mt-3"  >
             <div class="container-fluid">
                 <div class="row d-flex">
                     <div class="col-md-6">
@@ -36,7 +36,7 @@
                 </div>
             </div>
         </section>
-        <section class="intro py-5" style="display:none">
+        <section class="intro py-5"  >
             <div class="container">
                 <div class="row" style="width: 70%;margin: auto;min-height: 120px;">
                     <div class="col-md-4">
@@ -51,7 +51,7 @@
                 </div>
             </div>
         </section>
-        <section style="display:none">
+        <section  >
             <div class="container-fluid first-center-div ">
                 <div class="row">
                     <div class="col-lg-3 col-md-4 col-sm-6 ">
@@ -99,7 +99,7 @@
             </div>
         </section>
         <!--<p class="pl-5 pt-5 web-name">WHY LIFECOACH ?</p>-->
-        <section style="display:none">
+        <section  >
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-lg-3 mt-2 mb-5">
@@ -120,7 +120,7 @@
                 </div>
             </div>
         </section>
-        <section class="ftco-section testimony-section bg-secondary" style="display:none">
+        <section class="ftco-section testimony-section bg-secondary"  >
             <div class="container">
                 <div class="row justify-content-center pb-5 mb-3">
                     <div class="col-md-7 heading-section heading-section-white text-center ftco-animate">
@@ -231,7 +231,7 @@
                 </div>
             </div>
         </section>
-        <section class="ftco-section" style="display:none">
+        <section class="ftco-section"  >
             <div class="container">
                 <div class="row justify-content-center pb-5 mb-3">
                     <div class="col-md-7 heading-section text-center ftco-animate">
@@ -294,7 +294,7 @@
                 </div>
             </div>
         </section>
-        <section class="ftco-section ftco-no-pb ftco-no-pt" style="display:none">
+        <section class="ftco-section ftco-no-pb ftco-no-pt"  >
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -318,7 +318,7 @@
                 </div>
             </div>
         </section>
-        <section class="ftco-section bg-light" style="display:none">
+        <section class="ftco-section bg-light"  >
             <div class="container">
                 <div class="row justify-content-center pb-5 mb-3">
                     <div class="col-md-7 heading-section text-center ftco-animate">

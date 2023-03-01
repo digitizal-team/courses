@@ -55,7 +55,7 @@
         </section>
  
         <section>
-            <div class="container" style="display:none">
+            <div class="container"  >
                 <div class="row">
                     <div class="col-md-6 col-lg-3 mt-2 mb-5">
                         <img class="company-img-2" src="{{ asset('front/assets/images/one.png') }}" alt="">

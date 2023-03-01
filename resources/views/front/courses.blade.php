@@ -51,7 +51,7 @@
                 </div>
             </div>
         </section>
-        <section class="mt-3 mb-3" style="display:none">
+        <section class="mt-3 mb-3"  >
             <div class="container-fluid">
                 <div class="row d-flex">
                     <div class="col-md-6">
@@ -89,7 +89,7 @@
             </div>
         </section>
         <section>
-            <section style="display:none">
+            <section  >
                 <div class="course">
                     <p class="course-p">Our Courses</p>
                     <div class="course-child">

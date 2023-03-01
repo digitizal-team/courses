@@ -2,7 +2,7 @@
 @section('content')
     <main>
          <p class="pl-5 pt-5 web-name">ABOUT US</p>
-        <section class="mt-3" style="display:none">
+        <section class="mt-3"  >
             <div class="container-fluid">
                 <div class="row d-flex">
                     <div class="col-md-6">
@@ -40,7 +40,7 @@
                 </div>
             </div>
         </section>
-        <section style="display:none">
+        <section  >
             <div class="container mt-5 pb-2">
                 <div class="row"
                     style="border-top: 1px solid lightgrey;border-bottom: 1px solid lightgrey;width: 80%;margin: auto;">
@@ -85,7 +85,7 @@
                 </div>
             </div>
         </section>
-        <section style="display:none">
+        <section  >
             <div class="container">
                 <div class="row " style="width: 80%;margin: auto;border-bottom: 1px solid lightgrey">
                     <div class="col-lg-12">
@@ -106,7 +106,7 @@
                 </div>
             </div>
         </section>
-        <section style="display:none">
+        <section  >
 
             <div class="container">
 
@@ -148,7 +148,7 @@
             </div>
         </section>
        
-        <section style="display:none">
+        <section  >
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-lg-3 mt-2 mb-5">

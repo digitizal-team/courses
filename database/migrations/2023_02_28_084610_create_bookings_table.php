@@ -15,9 +15,6 @@ return new class extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->integer('course_id');
-            $table->integer('city_id');
-            $table->integer('date');
             $table->string('bill_contact');
             $table->string('seats');
             $table->integer('total_price');

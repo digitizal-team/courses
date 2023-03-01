@@ -47,7 +47,7 @@ Route::get('/getsession/{course_id}/{city_id}',[BookingController::class,'getses
 Route::get('/getseats/{id}',[BookingController::class,'getseats']);
 Route::get('/course/level/{id}',[CourseDetailController::class,'courselevelfunc']);
 Route::get('/courses',[HomeController::class,'courses']);
-Route::get('/booking/store',[BookingController::class,'booking_store']);
+Route::post('/booking/store',[BookingController::class,'booking_store']);
 
 //admin
 Route::group(['middleware' => 'role'], function () {
